@@ -62,6 +62,7 @@
             <div class="hidden md:flex space-x-6">
                 <a href="#" onclick="renderPage('home')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Subjects</a>
                 <a href="#" onclick="renderPage('rates')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Rates</a>
+                <a href="#" onclick="renderPage('reviews')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Reviews</a>
                 <a href="#" onclick="renderPage('contact')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Contact Info</a>
                 <button onclick="renderPage('form')" class="px-4 py-2 bg-custom-teal-500 text-white font-semibold rounded-xl hover:bg-custom-teal-700 transition duration-300 shadow-md shadow-custom-teal-500/50">
                     Register Now
@@ -76,6 +77,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-2">
             <a href="#" onclick="renderPage('home')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Subjects</a>
             <a href="#" onclick="renderPage('rates')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Rates</a>
+            <a href="#" onclick="renderPage('reviews')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Reviews</a>
             <a href="#" onclick="renderPage('contact')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Info</a>
             <button onclick="renderPage('form')" class="w-full text-left px-4 py-2 bg-custom-teal-500 text-white font-semibold hover:bg-custom-teal-700 transition duration-300">
                 Register Now
@@ -96,7 +98,8 @@
                 <p class="text-xl text-gray-600 mb-6">
                     GROUP AND PRIVATE LESSONS AVAILABLE
                 </p>
-                <div class="inline-block p-4 rounded-full bg-yellow-400 text-gray-900 font-bold text-2xl shadow-xl transform hover:scale-105 transition duration-300">
+                <!-- Color changed to custom-teal-500 -->
+                <div class="inline-block p-4 rounded-full bg-custom-teal-500 text-white font-bold text-2xl shadow-xl transform hover:scale-105 transition duration-300">
                     30 MIN FREE TRIAL CLASS
                 </div>
             </div>
@@ -135,7 +138,7 @@
                     <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">Group Classes (Hourly)</h3>
                     <ul class="space-y-4">
                         <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Elementary Math (Gr. 1) to Geometry</span>
+                            <span class="font-medium">Elementary Math to Geometry</span>
                             <span class="text-2xl font-bold text-custom-teal-700">$25</span>
                         </li>
                         <li class="flex justify-between items-center text-lg">
@@ -143,13 +146,10 @@
                             <span class="text-2xl font-bold text-custom-teal-700">$30</span>
                         </li>
                         <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Pre-Calculus and Above (e.g., Calculus-AB)</span>
+                            <span class="font-medium">Pre-Calculus and Above</span>
                             <span class="text-2xl font-bold text-custom-teal-700">$40</span>
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm text-gray-500 italic">
-                        *Group classes consist of 2 or more students. Rates are per person, per hour.
-                    </p>
                 </div>
 
                 <!-- One-on-One Card -->
@@ -157,7 +157,7 @@
                     <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">One-on-One (Hourly)</h3>
                     <ul class="space-y-4">
                         <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Elementary Math (Gr. 1) to Geometry</span>
+                            <span class="font-medium">Elementary Math to Geometry</span>
                             <span class="text-2xl font-bold text-custom-teal-700">$50</span>
                         </li>
                         <li class="flex justify-between items-center text-lg">
@@ -165,13 +165,10 @@
                             <span class="text-2xl font-bold text-custom-teal-700">$55</span>
                         </li>
                         <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Pre-Calculus and Above (e.g., Calculus-AB)</span>
+                            <span class="font-medium">Pre-Calculus and Above</span>
                             <span class="text-2xl font-bold text-custom-teal-700">$75</span>
                         </li>
                     </ul>
-                    <p class="mt-6 text-sm text-gray-500 italic">
-                        *Individualized, private instruction tailored to the student's needs.
-                    </p>
                 </div>
             </div>
             
@@ -180,6 +177,50 @@
                     Book Your Trial Class Today!
                 </button>
             </div>
+        </section>
+        
+        <!-- ==================================== -->
+        <!-- REVIEWS PAGE -->
+        <!-- ==================================== -->
+        <section id="reviews" class="page-container">
+            <h2 class="text-4xl font-bold text-center text-custom-teal-700 mb-10">What Students and Parents Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-custom-teal-500">
+                    <div class="flex items-center mb-3">
+                        <span class="text-yellow-500 text-xl mr-2">★★★★★</span>
+                        <span class="font-semibold text-lg text-gray-700">A huge confidence boost!</span>
+                    </div>
+                    <p class="text-gray-600 italic">"My daughter went from dreading geometry to actually understanding the proofs. The small group sessions are fantastic and the tutor is so patient. Highly recommend!"</p>
+                    <p class="mt-3 text-right text-sm font-medium text-custom-teal-700">— Sarah K., Parent of a Geometry Student</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-custom-teal-500">
+                    <div class="flex items-center mb-3">
+                        <span class="text-yellow-500 text-xl mr-2">★★★★★</span>
+                        <span class="font-semibold text-lg text-gray-700">Calculus makes sense now!</span>
+                    </div>
+                    <p class="text-gray-600 italic">"I struggled with the jump to Calculus-AB, but the one-on-one sessions here broke down the concepts perfectly. My test scores improved drastically!"</p>
+                    <p class="mt-3 text-right text-sm font-medium text-custom-teal-700">— Alex V., High School Student</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-custom-teal-500">
+                    <div class="flex items-center mb-3">
+                        <span class="text-yellow-500 text-xl mr-2">★★★★★</span>
+                        <span class="font-semibold text-lg text-gray-700">Engaging and Fun</span>
+                    </div>
+                    <p class="text-gray-600 italic">"The elementary math tutoring is so engaging. My son loves the lessons and it feels more like fun practice than schoolwork. A great investment in his math foundation."</p>
+                    <p class="mt-3 text-right text-sm font-medium text-custom-teal-700">— Mark D., Parent of a 4th Grader</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-600 mt-12">
+                Have a great experience to share? <a href="#" onclick="renderPage('form')" class="font-semibold text-custom-teal-500 hover:text-custom-teal-700">Tell us about it!</a>
+            </p>
         </section>
 
         <!-- ==================================== -->
@@ -234,14 +275,14 @@
                         <label for="student-level" class="block text-sm font-medium text-gray-700 mb-1">Student's Current Subject/Level</label>
                         <select id="student-level" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-custom-teal-500 focus:border-custom-teal-500">
                             <option value="">-- Select a subject or grade --</option>
-                            <option value="Elementary School Math (Gr. 1-5)">Elementary School Math (Gr. 1-5)</option>
+                            <option value="Elementary School Math">Elementary School Math (Gr. 1-5)</option>
                             <option value="Math 6">Math 6</option>
                             <option value="Pre-Algebra">Pre-Algebra</option>
                             <option value="Foundations of Algebra">Foundations of Algebra</option>
                             <option value="Algebra 1">Algebra 1</option>
                             <option value="Geometry">Geometry</option>
                             <option value="Algebra 2 / Trig">Algebra 2 / Trig</option>
-                            <option value="Pre-Calculus (All Tracks)">Pre-Calculus (All Tracks)</option>
+                            <option value="Pre-Calculus">Pre-Calculus (All Tracks)</option>
                             <option value="Calculus-AB">Calculus-AB</option>
                             <option value="Other">Other (Please specify in message)</option>
                         </select>
@@ -267,6 +308,7 @@
     <!-- JavaScript for Page Routing and Content Generation -->
     <script>
         const subjectData = [
+            // Updated subject title for simplicity
             { title: "Calculus-AB", level: "Advanced High School / College Prep", ratesRef: "Pre-Calc and above", description: "Mastering limits, derivatives, and integrals. Essential for STEM fields and AP exam success." },
             { title: "Pre-Calculus (All Tracks)", level: "High School", ratesRef: "Pre-Calc and above", description: "Comprehensive review of functions, trigonometry, and analytical geometry. The final bridge to Calculus." },
             { title: "Algebra 2 / Trig", level: "High School", ratesRef: "Algebra 2/Trig", description: "In-depth study of complex numbers, polynomials, rational functions, and trigonometric identities." },
@@ -275,7 +317,7 @@
             { title: "Pre-Algebra", level: "Middle School", ratesRef: "Elementary to Geometry", description: "Preparation for Algebra 1, covering integers, fractions, decimals, ratios, percents, and basic equation solving." },
             { title: "Foundations of Algebra", level: "Middle School", ratesRef: "Elementary to Geometry", description: "Building a strong base in arithmetic, number sense, and pre-algebraic thinking required for future math courses." },
             { title: "Math 6", level: "Middle School", ratesRef: "Elementary to Geometry", description: "Core 6th-grade mathematical standards including ratios, rates, division of fractions, and introduction to variables." },
-            { title: "Elementary School Math (Gr. 1-5)", level: "Elementary", ratesRef: "Elementary to Geometry", description: "Focus on arithmetic mastery, number sense, place value, and fundamental operations for a confident start." },
+            { title: "Elementary School Math", level: "Elementary", ratesRef: "Elementary to Geometry", description: "Focus on arithmetic mastery, number sense, place value, and fundamental operations for a confident start." },
         ];
 
         // Map for rate lookup (used in subject detail)
@@ -312,11 +354,12 @@
             subjectData.forEach(subject => {
                 html += `
                     <div onclick="renderPage('subject-details', '${subject.title}')" 
-                         class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer border-l-8 border-custom-teal-500">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">${subject.title}</h3>
-                        <p class="text-sm text-custom-teal-700 font-semibold mb-4">${subject.level}</p>
-                        <p class="text-gray-600">${subject.description.substring(0, 80)}...</p>
-                        <span class="mt-3 inline-block text-sm font-medium text-custom-teal-500 hover:underline">View Details & Rates &rarr;</span>
+                         class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer border-l-8 border-custom-teal-500 h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">${subject.title}</h3>
+                            <p class="text-sm text-custom-teal-700 font-semibold mb-4">${subject.level}</p>
+                        </div>
+                        <span class="mt-4 inline-block text-sm font-medium text-custom-teal-500 hover:underline">See Rates & Details &rarr;</span>
                     </div>
                 `;
             });
@@ -340,24 +383,19 @@
                 <h2 class="text-5xl font-extrabold text-custom-teal-700 mb-3">${subject.title}</h2>
                 <p class="text-xl text-gray-500 mb-6">${subject.level}</p>
                 
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Course Overview</h3>
-                        <p class="text-lg text-gray-700">${subject.description}</p>
-                        <p class="mt-4 text-custom-teal-500 font-medium">This subject is covered under our "${subject.ratesRef}" pricing tier.</p>
+                <!-- Rate sentence kept and styled, description removed -->
+                <p class="text-custom-teal-500 font-medium text-lg mb-8 text-center border-b pb-4">This subject is covered under our **${subject.ratesRef}** pricing tier.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-custom-teal-50 p-6 rounded-xl border border-custom-teal-500 shadow-md">
+                        <h4 class="text-xl font-bold text-custom-teal-700 mb-2">Group Class Rate</h4>
+                        <p class="text-4xl font-extrabold text-gray-800">$${rates.group}<span class="text-xl font-medium"> / hr</span></p>
+                        <p class="text-sm text-gray-600 mt-2">Perfect for collaborative learning with peers.</p>
                     </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-custom-teal-50 p-6 rounded-xl border border-custom-teal-500 shadow-md">
-                            <h4 class="text-xl font-bold text-custom-teal-700 mb-2">Group Class Rate</h4>
-                            <p class="text-4xl font-extrabold text-gray-800">$${rates.group}<span class="text-xl font-medium"> / hr</span></p>
-                            <p class="text-sm text-gray-600 mt-2">Perfect for collaborative learning with peers.</p>
-                        </div>
-                        <div class="bg-custom-teal-50 p-6 rounded-xl border border-custom-teal-700 shadow-md">
-                            <h4 class="text-xl font-bold text-custom-teal-700 mb-2">One-on-One Rate</h4>
-                            <p class="text-4xl font-extrabold text-gray-800">$${rates.oneOnOne}<span class="text-xl font-medium"> / hr</span></p>
-                            <p class="text-sm text-gray-600 mt-2">Fully personalized, focused attention.</p>
-                        </div>
+                    <div class="bg-custom-teal-50 p-6 rounded-xl border border-custom-teal-700 shadow-md">
+                        <h4 class="text-xl font-bold text-custom-teal-700 mb-2">One-on-One Rate</h4>
+                        <p class="text-4xl font-extrabold text-gray-800">$${rates.oneOnOne}<span class="text-xl font-medium"> / hr</span></p>
+                        <p class="text-sm text-gray-600 mt-2">Fully personalized, focused attention.</p>
                     </div>
                 </div>
             `;
