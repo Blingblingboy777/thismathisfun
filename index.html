@@ -60,9 +60,10 @@
                 <a href="#" onclick="renderPage('home')" class="logo-text">MATH <span>TUTORING</span></a>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="#" onclick="renderPage('home')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Subjects</a>
+                <a href="#" onclick="renderPage('home')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Home</a>
                 <a href="#" onclick="renderPage('rates')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Rates</a>
                 <a href="#" onclick="renderPage('reviews')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Reviews</a>
+                <a href="#" onclick="renderPage('about')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">About Me</a>
                 <a href="#" onclick="renderPage('contact')" class="text-gray-600 hover:text-custom-teal-500 transition duration-150 p-2 rounded-lg">Contact Info</a>
                 <button onclick="renderPage('form')" class="px-4 py-2 bg-custom-teal-500 text-white font-semibold rounded-xl hover:bg-custom-teal-700 transition duration-300 shadow-md shadow-custom-teal-500/50">
                     Register Now
@@ -75,9 +76,10 @@
         </nav>
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-2">
-            <a href="#" onclick="renderPage('home')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Subjects</a>
+            <a href="#" onclick="renderPage('home')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="#" onclick="renderPage('rates')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Rates</a>
             <a href="#" onclick="renderPage('reviews')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Reviews</a>
+            <a href="#" onclick="renderPage('about')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Me</a>
             <a href="#" onclick="renderPage('contact')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Info</a>
             <button onclick="renderPage('form')" class="w-full text-left px-4 py-2 bg-custom-teal-500 text-white font-semibold hover:bg-custom-teal-700 transition duration-300">
                 Register Now
@@ -88,30 +90,108 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         <!-- ==================================== -->
-        <!-- HOME PAGE - Subject Cards & Hero -->
+        <!-- HOME PAGE (Redesigned - Curie Style) -->
         <!-- ==================================== -->
         <section id="home" class="page-container active-page">
+            
+            <!-- 1. Primary Hero Section / CTA Banner -->
             <div class="text-center py-12 bg-white rounded-xl shadow-lg mb-12 border-b-4 border-custom-teal-500">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-custom-teal-700 mb-4">
-                    OPEN FOR REGISTRATION
+                    STOP STRUGGLING, START MASTERING MATH
                 </h1>
-                <p class="text-xl text-gray-600 mb-6">
-                    GROUP AND PRIVATE LESSONS AVAILABLE
+                <p class="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
+                    Expert tutoring for **Elementary to Calculus AB**. We focus on building deep conceptual understanding and lasting confidence.
                 </p>
-                <!-- Color changed to custom-teal-500 -->
-                <div class="inline-block p-4 rounded-full bg-custom-teal-500 text-white font-bold text-2xl shadow-xl transform hover:scale-105 transition duration-300">
-                    30 MIN FREE TRIAL CLASS
+                <button onclick="renderPage('form')" class="inline-block p-4 rounded-full bg-custom-teal-500 text-white font-bold text-lg sm:text-2xl shadow-xl transform hover:scale-105 transition duration-300">
+                    Enroll for a 30 MIN FREE TRIAL CLASS
+                </button>
+            </div>
+
+            <!-- 2. Core Pillars / Value Proposition -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-center text-gray-700 mb-4">Our Methodology for Success</h2>
+                <p class="text-center text-lg text-gray-500 mb-10 max-w-4xl mx-auto">
+                    We don't just solve problems—we teach the 'why' behind the 'how', ensuring every student achieves genuine mathematical fluency.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Pillar 1: Conceptual Clarity -->
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-custom-teal-500">
+                        <svg class="w-12 h-12 text-custom-teal-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 10l-2 2m0 0l2 2m14-4l2 2m0 0l-2 2M10 5a2 2 0 00-2 2v3h4v-3a2 2 0 00-2-2zM5 14h14a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2z"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Conceptual Clarity</h3>
+                        <p class="text-gray-600">Focus on foundational concepts rather than rote memorization. We build knowledge step-by-step.</p>
+                    </div>
+
+                    <!-- Pillar 2: Adaptive Teaching -->
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-custom-teal-500">
+                        <svg class="w-12 h-12 text-custom-teal-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 01-4 4H5a4 4 0 01-4-4V3a4 4 0 014-4h4a4 4 0 014 4v4zm0 10a4 4 0 01-4-4H5a4 4 0 01-4-4v-4a4 4 0 014-4h4a4 4 0 014 4v4a4 4 0 01-4 4z"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Adaptive Teaching</h3>
+                        <p class="text-gray-600">Patient, adaptive instruction tailored to the student's learning style and pace, ensuring the concept 'clicks'.</p>
+                    </div>
+
+                    <!-- Pillar 3: Proven Results -->
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-custom-teal-500">
+                        <svg class="w-12 h-12 text-custom-teal-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6m4 0a2 2 0 002 2h2a2 2 0 002-2m-2-7V5a2 2 0 012-2h4a2 2 0 012 2v14m-4 0a2 2 0 002 2h2a2 2 0 002-2"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Progress Tracking</h3>
+                        <p class="text-gray-600">Regular assessments and performance updates to clearly show academic improvement and mastery over time.</p>
+                    </div>
                 </div>
             </div>
 
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-700">Explore Our Subjects</h2>
-            
-            <!-- Subject Cards Grid -->
-            <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Cards will be injected here by JavaScript -->
+            <!-- 3. Subject Cards Overview -->
+            <div class="py-10">
+                <h2 class="text-3xl font-bold mb-8 text-center text-gray-700 border-b pb-4">Subjects We Specialize In</h2>
+                
+                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Cards will be injected here by JavaScript -->
+                </div>
+                
+                <div class="text-center mt-12">
+                     <button onclick="renderPage('rates')" class="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition duration-300">
+                        View All Rates
+                    </button>
+                </div>
             </div>
+            
         </section>
 
+        <!-- ==================================== -->
+        <!-- ABOUT ME PAGE -->
+        <!-- ==================================== -->
+        <section id="about" class="page-container">
+            <div class="bg-white p-10 rounded-xl shadow-xl border-t-4 border-custom-teal-500 max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-custom-teal-700 mb-6 text-center">About the Tutor</h2>
+                
+                <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                    <p>
+                        I am an **Experienced and dedicated math educator** with a degree in Mathematics and a strong background teaching elementary, middle, and high school students. 
+                    </p>
+                    <p>
+                        I specialize in **Algebra, Geometry, Precalculus, and Calculus AB**, using a patient and adaptive teaching style that meets students where they are. I tailor lessons to each group and stay with a concept until it truly clicks, consistently earning positive feedback for clarity and and effectiveness.
+                    </p>
+                    <p>
+                        Beyond the classroom, I create engaging, easy-to-follow math content on my YouTube channel 
+                        <a href="https://www.youtube.com/@thismathisfun" target="_blank" class="font-semibold text-custom-teal-500 hover:text-custom-teal-700 underline transition duration-200">
+                            This Math Is Fun
+                        </a>, making learning accessible to a wider audience.
+                    </p>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <button onclick="renderPage('form')" class="px-8 py-4 bg-custom-teal-500 text-white font-semibold text-xl rounded-2xl hover:bg-custom-teal-700 transition duration-300 shadow-xl shadow-custom-teal-500/50">
+                        Inquire About a Lesson
+                    </button>
+                </div>
+            </div>
+        </section>
+        
         <!-- ==================================== -->
         <!-- SUBJECT DETAILS PAGE -->
         <!-- ==================================== -->
@@ -120,7 +200,7 @@
                 <!-- Content will be injected here by JavaScript -->
             </div>
             <button onclick="renderPage('home')" class="mt-6 px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition duration-300">
-                &larr; Back to Subjects
+                &larr; Back to Home
             </button>
         </section>
 
@@ -356,7 +436,7 @@
                     <div onclick="renderPage('subject-details', '${subject.title}')" 
                          class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer border-l-8 border-custom-teal-500 h-full flex flex-col justify-between">
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-2">${subject.title}</h3>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">${subject.title}</h3>
                             <p class="text-sm text-custom-teal-700 font-semibold mb-4">${subject.level}</p>
                         </div>
                         <span class="mt-4 inline-block text-sm font-medium text-custom-teal-500 hover:underline">See Rates & Details &rarr;</span>
