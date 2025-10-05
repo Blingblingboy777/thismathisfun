@@ -455,6 +455,604 @@
     <script>
         // Updated subject data with color classes
         const subjectData = [
+            // MOVED TO TOP as requested
+            { title: "Critical Thinking Questions", level: "High-Level Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },
+            
+            // Original list follows
+            { title: "Calculus-AB", level: "Advanced High School / College Prep", ratesRef: "Pre-Calc and above", colorClass: "subject-red", hoverBg: "bg-red-50", hoverText: "text-red-600" },
+            { title: "Pre-Calculus (All Tracks)", level: "High School", ratesRef: "Pre-Calc and above", colorClass: "subject-orange", hoverBg: "bg-orange-50", hoverText: "text-orange-600" },
+            { title: "Algebra 2 / Trig", level: "High School", ratesRef: "Algebra 2/Trig", colorClass: "subject-yellow", hoverBg: "bg-yellow-50", hoverText: "text-yellow-600" },
+            { title: "Geometry", level: "High School / Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-green", hoverBg: "bg-green-50", hoverText: "text-green-600" },
+            { title: "Algebra 1", level: "Middle / High School", ratesRef: "Elementary to Geometry", colorClass: "subject-teal", hoverBg: "bg-teal-50", hoverText: "text-teal-600" },
+            { title: "Pre-Algebra", level: "Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-cyan", hoverBg: "bg-cyan-50", hoverText: "text-cyan-600" },
+            { title: "Foundations of Algebra", level: "Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-blue", hoverBg: "bg-blue-50", hoverText: "text-blue-600" },
+            { title: "Math 6", level: "Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-violet", hoverBg: "bg-violet-50", hoverText: "text-violet-600" },
+            { title: "Elementary School Math", level: "Elementary", ratesRef: "Elementary to Geometry", colorClass: "subject-pink", hoverBg: "bg-pink-50", hoverText: "text-pink-600" },
+        ];
+
+        // Map for rate lookup (used in subject detail)
+        const rateMap = {
+            "Elementary to Geometry": { group: 25, oneOnOne: 50 },
+            "Algebra 2/Trig": { group: 30, oneOnOne: 55 },
+            "Pre-Calc and above": { group: 40, oneOnOne: 75 },
+            // Specialized rate tier for Critical Thinking
+            "AOLSpecialized": { group: 45, oneOnOne: 70 },
+        };
+
+        // --- Core Page Rendering Logic ---
+        function renderPage(pageName, subjectTitle = null) {
+            const pages = document.querySelectorAll('.page-container');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            const activePage = document.getElementById(pageName);
+            if (activePage) {
+                activePage.classList.add('active-page');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Special handling for subject details
+            if (pageName === 'subject-details' && subjectTitle) {
+                renderSubjectDetails(subjectTitle);
+            }
+        }
+
+        // --- Subject Card Generation ---
+        function generateSubjectCards() {
+            const container = document.getElementById('subject-cards-container');
+            let html = '';
+
+            subjectData.forEach(subject => {
+                // The hoverText class needs to be defined like 'text-red-600'
+                const hoverTextClass = subject.hoverText.includes('text-') ? subject.hoverText : `text-${subject.hoverText}`;
+
+                html += `
+                    <div onclick="renderPage('subject-details', '${subject.title}')" 
+                         class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer border-l-8 border-[${subject.colorClass}] ${subject.hoverBg} h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">${subject.title}</h3>
+                            <p class="text-sm ${hoverTextClass} font-semibold mb-4">${subject.level}</p>
+                        </div>
+                        <span class="mt-4 inline-block text-sm font-bold text-dark-indigo hover:underline">See Rates & Details &rarr;</span>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // --- Subject Detail Page Rendering (Updated for AOL note, now using Tailwind classes for bolding) ---
+        function renderSubjectDetails(title) {
+            const subject = subjectData.find(s => s.title === title);
+            const contentDiv = document.getElementById('subject-detail-content');
+
+            if (!subject) {
+                contentDiv.innerHTML = '<h2 class="text-4xl font-bold text-red-500">Subject Not Found</h2>';
+                return;
+            }
+
+            const rates = rateMap[subject.ratesRef];
+            
+            // Dynamic classes for the detail page
+            const borderColor = `border-2 border-[${subject.colorClass}]`;
+            const bgColor = `${subject.hoverBg}`;
+            
+            let instructorNote = '';
+            if (subject.title === "Critical Thinking Questions") {
+                instructorNote = `
+                    <div class="my-6 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-lg shadow-md">
+                        <p class="font-bold text-lg">Specialized Instruction Alert!</p>
+                        <p class="mt-1">This high-level problem-solving track is taught exclusively by a current, highly-qualified <span class="font-bold">Academies of Loudoun (AOL) student</span>, ensuring instruction is focused on advanced competition math and critical reasoning techniques.</p>
+                    </div>
+                `;
+            }
+
+            contentDiv.innerHTML = `
+                <h2 class="text-5xl font-extrabold text-indigo-700 mb-3">${subject.title}</h2>
+                <p class="text-xl text-gray-500 mb-6">${subject.level}</p>
+                
+                <p class="text-[${subject.colorClass}] font-black text-lg mb-8 text-center border-b-2 border-dashed border-gray-200 pb-4">This subject is covered under our ${subject.ratesRef} pricing tier.</p>
+                
+                ${instructorNote}
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Rate Card 1 -->
+                    <div class="p-6 rounded-xl ${borderColor} shadow-lg ${bgColor}">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Group Class Rate</h4>
+                        <p class="text-4xl font-black text-[${subject.colorClass}]">$${rates.group}<span class="text-xl font-medium"> / hr</span></p>
+                        <p class="text-sm text-gray-700 mt-2">Perfect for collaborative learning with peers.</p>
+                    </div>
+                    <!-- Rate Card 2 -->
+                    <div class="p-6 rounded-xl ${borderColor} shadow-lg ${bgColor}">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">One-on-One Rate</h4>
+                        <p class="text-4xl font-black text-[${subject.colorClass}]">$${rates.oneOnOne}<span class="text-xl font-medium"> / hr</span></p>
+                        <p class="text-sm text-gray-700 mt-2">Fully personalized, focused attention.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <button onclick="renderPage('form')" class="px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
+                        Sign Up Now for ${subject.title}
+                    </button>
+                </div>
+            `;
+        }
+        
+        // --- Mailto Form Submission Handler ---
+        function handleMailtoForm(event) {
+            event.preventDefault(); // Stop the default form submission
+
+            const name = document.getElementById('name').value;
+            const level = document.getElementById('student-level').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent(`Tutoring Inquiry for ${name} (${level})`);
+            const body = encodeURIComponent(
+                `Full Name: ${name}\n` +
+                `Student Level: ${level}\n\n` +
+                `Message Details:\n${message}\n\n` +
+                `---\n[Please leave the rest of this email for tracking purposes.]`
+            );
+
+            const mailtoLink = `mailto:thismathisfun@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Attempt to open the mail client
+            window.location.href = mailtoLink;
+
+            // Show an error message if the link doesn't open immediately (for better user feedback)
+            document.getElementById('email-error').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('email-error').classList.add('hidden');
+            }, 5000);
+            
+            // Optionally, clear the form after attempt
+            document.getElementById('mailto-form').reset();
+        }
+
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on nav item click
+        document.getElementById('mobile-menu').querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // --- Initialize ---
+        window.onload = () => {
+            generateSubjectCards();
+            // Start on the home page
+            renderPage('home'); 
+        };
+    </script>
+</body>
+</html>
+    <style>
+        /* Custom styles for page containers and smooth transitions */
+        .page-container {
+            display: none;
+            min-height: calc(100vh - 80px); 
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .active-page {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans text-gray-800">
+
+    <!-- Navigation Bar (White, Bolder Indigo/Amber accents) -->
+    <header class="shadow-lg bg-white sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <div class="flex-shrink-0">
+                <a href="#" onclick="renderPage('home')" class="flex items-center space-x-2 text-2xl font-extrabold text-dark-indigo hover:text-indigo-700 transition">
+                    <!-- Fun Looking Pencil Logo (Inline SVG) -->
+                    <svg class="w-8 h-8 transform rotate-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.1 5.9L18.1 4.9C16.5 3.3 14 3.3 12.4 4.9L4 13.3V18H8.7L17.1 9.6C18.7 8 18.7 6.4 17.1 4.8L19.1 5.9ZM4 18V20C4 20.55 4.45 21 5 21H19C19.55 21 20 20.55 20 20V18" fill="#F59E0B" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 6L18 10" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 16L19 19" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="2" y="19" width="20" height="3" rx="1.5" fill="#4B5563"/>
+                    </svg>
+                    <div>
+                        <span class="block text-sm font-semibold text-gray-500 leading-none">THIS MATH IS</span>
+                        <span class="block text-3xl text-bright-amber leading-none">FUN TUTORING</span>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" onclick="renderPage('home')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Home</a>
+                <a href="#" onclick="renderPage('rates')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Rates</a>
+                <a href="#" onclick="renderPage('reviews')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Reviews</a>
+                <a href="#" onclick="renderPage('about')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">About Me</a>
+                <a href="#" onclick="renderPage('contact')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Contact Info</a>
+                <button onclick="renderPage('form')" class="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
+                    Register Now
+                </button>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-indigo-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-2">
+            <a href="#" onclick="renderPage('home')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="#" onclick="renderPage('rates')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Rates</a>
+            <a href="#" onclick="renderPage('reviews')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Reviews</a>
+            <a href="#" onclick="renderPage('about')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Me</a>
+            <a href="#" onclick="renderPage('contact')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Info</a>
+            <button onclick="renderPage('form')" class="w-full text-left px-4 py-2 bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition duration-300">
+                Register Now
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ==================================== -->
+        <!-- HOME PAGE (Vibrant Theme) -->
+        <!-- ==================================== -->
+        <section id="home" class="page-container active-page">
+            
+            <!-- 1. Primary Hero Section / CTA Banner (More Colorful) -->
+            <div class="text-center p-6 sm:p-10 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-2xl shadow-2xl mb-12 border-b-8 border-indigo-600 overflow-hidden">
+                <!-- User's Main Image (image_88dae5.png) -->
+                <img 
+                    src="image_88dae5.png" 
+                    alt="Calculator and pencils on a sheet of paper with various calculus and algebraic formulas written on it" 
+                    class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl mb-8 border-4 border-bright-amber"
+                    onerror="this.onerror=null; this.src='https://placehold.co/700x300/1e3a8a/ffffff?text=Math+Success+Awaits'; console.error('Image image_88dae5.png failed to load.');"
+                >
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold text-dark-indigo mb-4 tracking-tight">
+                    Master Math, Elevate Your Grades
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium">
+                    Expert tutoring for all subjects from Elementary arithmetic up through AP Calculus. Achieve conceptual clarity and lasting confidence.
+                </p>
+                <button onclick="renderPage('form')" class="inline-block p-4 rounded-full bg-bright-amber text-dark-indigo font-black text-xl sm:text-2xl shadow-2xl transform hover:scale-105 transition duration-300 shadow-bright-amber/70 hover:bg-amber-400">
+                    Enroll for a 30 MIN FREE TRIAL CLASS
+                </button>
+            </div>
+
+            <!-- 2. Visualizing Success (Clean list, high contrast) -->
+            <div class="mb-12 bg-white p-8 rounded-2xl shadow-xl border-t-4 border-bright-amber">
+                <h2 class="text-3xl font-bold text-center text-dark-indigo mb-8 border-b pb-4">Our Commitment to Your Success</h2>
+                
+                <div class="max-w-4xl mx-auto text-lg text-gray-700 space-y-6">
+                    <div class="flex items-start bg-indigo-50 p-4 rounded-lg shadow-sm">
+                        <span class="text-indigo-600 font-extrabold mr-3 text-2xl">✓</span> 
+                        <p>
+                            <strong class="text-gray-900">Equations Made Clear:</strong> We break down complicated formulas and concepts into simple, manageable steps, so you always know <em>why</em> the math works.
+                        </p>
+                    </div>
+                    <div class="flex items-start bg-indigo-50 p-4 rounded-lg shadow-sm">
+                        <span class="text-indigo-600 font-extrabold mr-3 text-2xl">✓</span> 
+                        <p>
+                            <strong class="text-gray-900">Personalized Learning:</strong> Enjoy focused, one-on-one attention or small group sessions that adapt completely to your unique learning style and pace.
+                        </p>
+                    </div>
+                    <div class="flex items-start bg-indigo-50 p-4 rounded-lg shadow-sm">
+                        <span class="text-indigo-600 font-extrabold mr-3 text-2xl">✓</span> 
+                        <p>
+                            <strong class="text-gray-900">Tools for Top Grades:</strong> Learn effective study habits, time management, and test-taking strategies that lead to significant, measurable academic achievement.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3. Core Pillars / Value Proposition (Vibrant Cards) -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-center text-dark-indigo mb-4">Our Collaborative Approach</h2>
+                <p class="text-center text-lg text-gray-500 mb-10 max-w-4xl mx-auto">
+                    We specialize in personalized, patient instruction that ensures every student achieves genuine mathematical fluency.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Pillar 1: Conceptual Clarity -->
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-blue hover:bg-subject-blue/10 transition duration-300">
+                        <!-- Icon: Lightbulb for Clarity -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-blue mx-auto mb-4">
+                            <path d="M15 14c.2-.8.8-1.7 1.5-2.4.7-.7 1.6-1.5 2.2-2.3C20.3 7.1 21 4.7 21 2c0 .2 0 .4-.1.5a10 10 0 0 1-5 18c-3 0-5.5-1.5-7.5-3.5S1 14.5 1 11.5c0-.8.1-1.6.2-2.4"/>
+                            <path d="M12 22v-3"/>
+                            <path d="M10 20h4"/>
+                            <path d="M12 2C9.2 4.7 7.1 7.1 6 10c0 1.2.2 2.3.5 3.3"/>
+                            <path d="M12 2v-1"/>
+                            <path d="M12 19v-2"/>
+                            <path d="M17 5h-4"/>
+                            <path d="M15 3h-2"/>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Conceptual Clarity</h3>
+                        <p class="text-gray-600">We prioritize foundational concepts over memorization, teaching the 'why' to build deep, long-lasting understanding.</p>
+                    </div>
+
+                    <!-- Pillar 2: Adaptive Teaching -->
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-teal hover:bg-subject-teal/10 transition duration-300">
+                        <!-- Icon: Users for Adaptive Teaching / Groups -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-teal mx-auto mb-4">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Adaptive Learning</h3>
+                        <p class="text-gray-600">Instruction is tailored to the student's unique learning pace and style, ensuring every topic "clicks" effectively.</p>
+                    </div>
+
+                    <!-- Pillar 3: Progress Tracking -->
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-red hover:bg-subject-red/10 transition duration-300">
+                        <!-- Icon: Target for Goals / Results -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-red mx-auto mb-4">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Measurable Progress</h3>
+                        <p class="text-gray-600">Regular quizzes and performance updates provide clear evidence of academic growth and mastery over time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Subject Cards Overview (3x3 Grid Enforced) -->
+            <div class="py-10">
+                <h2 class="text-4xl font-extrabold mb-8 text-center text-dark-indigo border-b pb-4">Our Specialized Math Tracks</h2>
+                
+                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                    <!-- Cards will be injected here by JavaScript -->
+                </div>
+                
+                <div class="text-center mt-12">
+                     <button onclick="renderPage('rates')" class="px-6 py-3 bg-gray-300 text-gray-800 font-bold rounded-xl hover:bg-gray-400 transition duration-300 shadow-md">
+                        View Complete Pricing
+                    </button>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- ==================================== -->
+        <!-- ABOUT ME PAGE -->
+        <!-- ==================================== -->
+        <section id="about" class="page-container">
+            <div class="bg-white p-10 rounded-2xl shadow-2xl border-t-8 border-indigo-600 max-w-3xl mx-auto">
+                <h2 class="text-4xl font-extrabold text-indigo-700 mb-6 text-center">About the Tutor</h2>
+                
+                <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                    <p class="font-medium">
+                        I am an Experienced and dedicated math educator with a degree in Mathematics and a strong background teaching elementary, middle, and high school students. 
+                    </p>
+                    <p>
+                        I specialize in <strong class="text-gray-900">Algebra, Geometry, Precalculus, and Calculus AB</strong>, using a patient and adaptive teaching style that meets students where they are. I tailor lessons to each group and stay with a concept until it truly clicks, consistently earning positive feedback for clarity and and effectiveness.
+                    </p>
+                    <p>
+                        Beyond the classroom, I create engaging, easy-to-follow math content on my YouTube channel 
+                        <a href="https://www.youtube.com/@thismathisfun" target="_blank" class="font-semibold text-bright-amber hover:text-amber-600 underline transition duration-200">
+                            This Math Is Fun
+                        </a>, making learning accessible to a wider audience.
+                    </p>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <button onclick="renderPage('form')" class="px-8 py-4 bg-bright-amber text-dark-indigo font-black text-xl rounded-2xl hover:bg-amber-400 transition duration-300 shadow-xl shadow-bright-amber/70">
+                        Inquire About a Lesson
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ==================================== -->
+        <!-- SUBJECT DETAILS PAGE -->
+        <!-- ==================================== -->
+        <section id="subject-details" class="page-container">
+            <div id="subject-detail-content" class="bg-white p-8 rounded-xl shadow-2xl border-t-8 border-indigo-600">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
+            <button onclick="renderPage('home')" class="mt-6 px-6 py-3 bg-gray-300 text-gray-800 font-semibold rounded-xl hover:bg-gray-400 transition duration-300">
+                &larr; Back to Home
+            </button>
+        </section>
+
+
+        <!-- ==================================== -->
+        <!-- RATES PAGE -->
+        <!-- ==================================== -->
+        <section id="rates" class="page-container">
+            <h2 class="text-4xl font-extrabold text-center text-dark-indigo mb-10">Our Tutoring Rates</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- Group Classes Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-indigo-600">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 text-indigo-700">Group Classes (Hourly)</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50">
+                            <span class="font-semibold">Elementary Math to Geometry</span>
+                            <span class="text-2xl font-extrabold text-bright-amber">$25</span>
+                        </li>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50">
+                            <span class="font-semibold">Algebra 2 / Trigonometry</span>
+                            <span class="text-2xl font-extrabold text-bright-amber">$30</span>
+                        </li>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50">
+                            <span class="font-semibold">Pre-Calculus and Above</span>
+                            <span class="text-2xl font-extrabold text-bright-amber">$40</span>
+                        </li>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50 font-bold text-dark-indigo">
+                            <span class="font-semibold">Critical Thinking (Specialized)</span>
+                            <span class="text-2xl font-extrabold text-red-500">$45</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- One-on-One Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-bright-amber">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 text-bright-amber">One-on-One (Hourly)</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50">
+                            <span class="font-semibold">Elementary Math to Geometry</span>
+                            <span class="text-2xl font-extrabold text-indigo-700">$50</span>
+                        </li>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50">
+                            <span class="font-semibold">Algebra 2 / Trigonometry</span>
+                            <span class="text-2xl font-extrabold text-indigo-700">$55</span>
+                        </li>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50">
+                            <span class="font-semibold">Pre-Calculus and Above</span>
+                            <span class="text-2xl font-extrabold text-indigo-700">$75</span>
+                        </li>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50 font-bold text-dark-indigo">
+                            <span class="font-semibold">Critical Thinking (Specialized)</span>
+                            <span class="text-2xl font-extrabold text-red-500">$70</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                 <button onclick="renderPage('form')" class="px-8 py-4 bg-indigo-600 text-white font-black text-xl rounded-2xl hover:bg-indigo-700 transition duration-300 shadow-xl shadow-indigo-600/70">
+                    Book Your Trial Class Today!
+                </button>
+            </div>
+        </section>
+        
+        <!-- ==================================== -->
+        <!-- REVIEWS PAGE -->
+        <!-- ==================================== -->
+        <section id="reviews" class="page-container">
+            <h2 class="text-4xl font-extrabold text-center text-dark-indigo mb-10">What Students and Parents Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-bright-amber">
+                    <div class="flex items-center mb-3">
+                        <span class="text-yellow-500 text-2xl mr-2">⭐</span>
+                        <strong class="text-lg text-dark-indigo">A huge confidence boost!</strong>
+                    </div>
+                    <p class="text-gray-700 italic">"My daughter went from dreading geometry to actually understanding the proofs. The small group sessions are fantastic and the tutor is so patient. Highly recommend!"</p>
+                    <p class="mt-3 text-right text-sm font-bold text-indigo-700">— Sarah K., Parent of a Geometry Student</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-bright-amber">
+                    <div class="flex items-center mb-3">
+                        <span class="text-yellow-500 text-2xl mr-2">⭐</span>
+                        <strong class="text-lg text-dark-indigo">Calculus makes sense now!</strong>
+                    </div>
+                    <p class="text-gray-700 italic">"I struggled with the jump to Calculus-AB, but the one-on-one sessions here broke down the concepts perfectly. My test scores improved drastically!"</p>
+                    <p class="mt-3 text-right text-sm font-bold text-indigo-700">— Alex V., High School Student</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-bright-amber">
+                    <div class="flex items-center mb-3">
+                        <span class="text-yellow-500 text-2xl mr-2">⭐</span>
+                        <strong class="font-bold text-lg text-dark-indigo">Engaging and Fun</strong>
+                    </div>
+                    <p class="text-gray-700 italic">"The elementary math tutoring is so engaging. My son loves the lessons and it feels more like fun practice than schoolwork. A great investment in his math foundation."</p>
+                    <p class="mt-3 text-right text-sm font-bold text-indigo-700">— Mark D., Parent of a 4th Grader</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-600 mt-12">
+                Have a great experience to share? <a href="#" onclick="renderPage('form')" class="font-semibold text-bright-amber hover:text-amber-600">Tell us about it!</a>
+            </p>
+        </section>
+
+        <!-- ==================================== -->
+        <!-- CONTACT INFO PAGE -->
+        <!-- ==================================== -->
+        <section id="contact" class="page-container">
+            <div class="bg-white p-10 rounded-2xl shadow-xl border-t-8 border-indigo-600 max-w-lg mx-auto text-center">
+                <h2 class="text-4xl font-extrabold text-indigo-700 mb-8">Get In Touch</h2>
+                
+                <div class="space-y-6">
+                    <div class="p-4 bg-indigo-50 rounded-xl shadow-md">
+                        <p class="text-sm font-bold text-indigo-700">EMAIL ADDRESS</p>
+                        <a href="mailto:thismathisfun@gmail.com" class="text-2xl font-black text-bright-amber hover:text-amber-600 transition duration-200">
+                            thismathisfun@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div class="p-4 bg-indigo-50 rounded-xl shadow-md">
+                        <p class="text-sm font-bold text-indigo-700">PHONE NUMBER (Call or Text)</p>
+                        <a href="tel:+17037320080" class="text-2xl font-black text-bright-amber hover:text-amber-600 transition duration-200">
+                            +1 (703) 732-0080
+                        </a>
+                    </div>
+                </div>
+
+                <button onclick="renderPage('form')" class="mt-10 px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
+                    Send a Message
+                </button>
+            </div>
+        </section>
+        
+        <!-- ==================================== -->
+        <!-- CONTACT FORM PAGE (Mailto) -->
+        <!-- ==================================== -->
+        <section id="form" class="page-container">
+            <div class="bg-white p-10 rounded-2xl shadow-2xl border-t-8 border-indigo-600 max-w-2xl mx-auto">
+                <h2 class="text-4xl font-extrabold text-indigo-700 mb-4 text-center">Submit Your Inquiry</h2>
+                <p class="text-center text-gray-600 mb-8 font-medium">
+                    Fill out the form below. When you click 'Submit', your default email program will open to send the message to <span class="font-bold">thismathisfun@gmail.com</span>.
+                </p>
+
+                <form id="mailto-form" class="space-y-6" onsubmit="handleMailtoForm(event)">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Full Name</label>
+                        <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-bright-amber focus:border-bright-amber">
+                    </div>
+                    <div>
+                        <label for="student-level" class="block text-sm font-medium text-gray-700 mb-1">Student's Current Subject/Level</label>
+                        <select id="student-level" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-bright-amber focus:border-bright-amber">
+                            <option value="">-- Select a subject or grade --</option>
+                            <option value="Critical Thinking Questions">Critical Thinking Questions (Specialized)</option>
+                            <option value="Elementary School Math">Elementary School Math (Gr. 1-5)</option>
+                            <option value="Math 6">Math 6</option>
+                            <option value="Pre-Algebra">Pre-Algebra</option>
+                            <option value="Foundations of Algebra">Foundations of Algebra</option>
+                            <option value="Algebra 1">Algebra 1</option>
+                            <option value="Geometry">Geometry</option>
+                            <option value="Algebra 2 / Trig">Algebra 2 / Trig</option>
+                            <option value="Pre-Calculus">Pre-Calculus (All Tracks)</option>
+                            <option value="Calculus-AB">Calculus-AB</option>
+                            <option value="Other">Other (Please specify in message)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message/Request Details</label>
+                        <textarea id="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-bright-amber focus:border-bright-amber"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full px-4 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
+                        Submit Inquiry via Email
+                    </button>
+                </form>
+
+                <div id="email-error" class="hidden mt-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded" role="alert">
+                    Please allow the page to open your email client. If it doesn't open, please email us directly at <a href="mailto:thismathisfun@gmail.com" class="font-semibold underline">thismathisfun@gmail.com</a>.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript for Page Routing and Content Generation -->
+    <script>
+        // Updated subject data with color classes
+        const subjectData = [
             { title: "Calculus-AB", level: "Advanced High School / College Prep", ratesRef: "Pre-Calc and above", colorClass: "subject-red", hoverBg: "bg-red-50", hoverText: "text-red-600" },
             { title: "Pre-Calculus (All Tracks)", level: "High School", ratesRef: "Pre-Calc and above", colorClass: "subject-orange", hoverBg: "bg-orange-50", hoverText: "text-orange-600" },
             { title: "Algebra 2 / Trig", level: "High School", ratesRef: "Algebra 2/Trig", colorClass: "subject-yellow", hoverBg: "bg-yellow-50", hoverText: "text-yellow-600" },
