@@ -6,7 +6,7 @@
     <title>This Math Is Fun - Tutoring Services</title>
     <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind for a classic academic color palette (Navy & Gold/Amber) plus custom vibrant colors -->
+    <!-- Configure Tailwind for a vibrant color palette -->
     <script>
         tailwind.config = {
             theme: {
@@ -14,17 +14,19 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
-                    // Adding custom colors for easier use with subject coding
+                    // Custom colors for subject cards (now with better vibrancy)
                     colors: {
-                        'subject-red': '#ef4444',
-                        'subject-orange': '#f97316',
+                        'subject-red': '#f87171',
+                        'subject-orange': '#fb923c',
                         'subject-yellow': '#facc15',
-                        'subject-green': '#10b981',
-                        'subject-teal': '#14b8a6',
-                        'subject-cyan': '#06b6d4',
-                        'subject-blue': '#3b82f6',
-                        'subject-violet': '#8b5cf6',
-                        'subject-pink': '#ec4899',
+                        'subject-green': '#4ade80',
+                        'subject-teal': '#2dd4bf',
+                        'subject-cyan': '#22d3ee',
+                        'subject-blue': '#60a5fa',
+                        'subject-violet': '#a78bfa',
+                        'subject-pink': '#f472b6',
+                        'dark-indigo': '#1e3a8a',
+                        'bright-amber': '#f59e0b',
                     }
                 }
             }
@@ -46,13 +48,13 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
+<body class="bg-blue-50 font-sans text-gray-800">
 
-    <!-- Navigation Bar (White, Navy/Amber accents) -->
+    <!-- Navigation Bar (White, Bolder Indigo/Amber accents) -->
     <header class="shadow-lg bg-white sticky top-0 z-10">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
             <div class="flex-shrink-0">
-                <a href="#" onclick="renderPage('home')" class="flex items-center space-x-2 text-2xl font-extrabold text-indigo-900 hover:text-indigo-700 transition">
+                <a href="#" onclick="renderPage('home')" class="flex items-center space-x-2 text-2xl font-extrabold text-dark-indigo hover:text-indigo-700 transition">
                     <!-- Fun Looking Pencil Logo (Inline SVG) -->
                     <svg class="w-8 h-8 transform rotate-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.1 5.9L18.1 4.9C16.5 3.3 14 3.3 12.4 4.9L4 13.3V18H8.7L17.1 9.6C18.7 8 18.7 6.4 17.1 4.8L19.1 5.9ZM4 18V20C4 20.55 4.45 21 5 21H19C19.55 21 20 20.55 20 20V18" fill="#F59E0B" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -62,17 +64,17 @@
                     </svg>
                     <div>
                         <span class="block text-sm font-semibold text-gray-500 leading-none">THIS MATH IS</span>
-                        <span class="block text-3xl text-amber-600 leading-none">FUN TUTORING</span>
+                        <span class="block text-3xl text-bright-amber leading-none">FUN TUTORING</span>
                     </div>
                 </a>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="#" onclick="renderPage('home')" class="text-gray-600 hover:text-amber-500 transition duration-150 p-2 rounded-lg">Home</a>
-                <a href="#" onclick="renderPage('rates')" class="text-gray-600 hover:text-amber-500 transition duration-150 p-2 rounded-lg">Rates</a>
-                <a href="#" onclick="renderPage('reviews')" class="text-gray-600 hover:text-amber-500 transition duration-150 p-2 rounded-lg">Reviews</a>
-                <a href="#" onclick="renderPage('about')" class="text-gray-600 hover:text-amber-500 transition duration-150 p-2 rounded-lg">About Me</a>
-                <a href="#" onclick="renderPage('contact')" class="text-gray-600 hover:text-amber-500 transition duration-150 p-2 rounded-lg">Contact Info</a>
-                <button onclick="renderPage('form')" class="px-4 py-2 bg-indigo-700 text-white font-semibold rounded-xl hover:bg-indigo-800 transition duration-300 shadow-md shadow-indigo-700/50">
+                <a href="#" onclick="renderPage('home')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Home</a>
+                <a href="#" onclick="renderPage('rates')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Rates</a>
+                <a href="#" onclick="renderPage('reviews')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Reviews</a>
+                <a href="#" onclick="renderPage('about')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">About Me</a>
+                <a href="#" onclick="renderPage('contact')" class="text-gray-600 hover:text-bright-amber transition duration-150 p-2 rounded-lg font-medium">Contact Info</a>
+                <button onclick="renderPage('form')" class="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
                     Register Now
                 </button>
             </div>
@@ -88,7 +90,7 @@
             <a href="#" onclick="renderPage('reviews')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Reviews</a>
             <a href="#" onclick="renderPage('about')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Me</a>
             <a href="#" onclick="renderPage('contact')" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Info</a>
-            <button onclick="renderPage('form')" class="w-full text-left px-4 py-2 bg-indigo-700 text-white font-semibold hover:bg-indigo-800 transition duration-300">
+            <button onclick="renderPage('form')" class="w-full text-left px-4 py-2 bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition duration-300">
                 Register Now
             </button>
         </div>
@@ -97,55 +99,61 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         <!-- ==================================== -->
-        <!-- HOME PAGE (Academic Theme) -->
+        <!-- HOME PAGE (Vibrant Theme) -->
         <!-- ==================================== -->
         <section id="home" class="page-container active-page">
             
-            <!-- 1. Primary Hero Section / CTA Banner -->
-            <div class="text-center py-6 bg-white rounded-xl shadow-2xl mb-12 border-b-8 border-indigo-700 overflow-hidden">
-                <!-- User's NEW Main Image (image_88dae5.png) -->
+            <!-- 1. Primary Hero Section / CTA Banner (More Colorful) -->
+            <div class="text-center p-6 sm:p-10 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-2xl shadow-2xl mb-12 border-b-8 border-indigo-600 overflow-hidden">
+                <!-- User's Main Image (image_88dae5.png) -->
                 <img 
                     src="image_88dae5.png" 
                     alt="Calculator and pencils on a sheet of paper with various calculus and algebraic formulas written on it" 
-                    class="w-full max-w-4xl mx-auto rounded-lg shadow-xl mb-8 border-4 border-amber-400"
-                    onerror="this.onerror=null; this.src='https://placehold.co/700x300/1e3a8a/ffffff?text=Math+Success+Awaits'; alert('The image from the flyer could not be loaded. Showing placeholder.');"
+                    class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl mb-8 border-4 border-bright-amber"
+                    onerror="this.onerror=null; this.src='https://placehold.co/700x300/1e3a8a/ffffff?text=Math+Success+Awaits'; console.error('Image image_88dae5.png failed to load.');"
                 >
                 
-                <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-800 mb-4 tracking-tight">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-dark-indigo mb-4 tracking-tight">
                     Master Math, Elevate Your Grades
                 </h1>
-                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium">
                     Expert tutoring for all subjects from Elementary arithmetic up through AP Calculus. Achieve conceptual clarity and lasting confidence.
                 </p>
-                <button onclick="renderPage('form')" class="inline-block p-4 rounded-full bg-amber-500 text-white font-bold text-lg sm:text-2xl shadow-xl transform hover:scale-105 transition duration-300 shadow-amber-500/50">
+                <button onclick="renderPage('form')" class="inline-block p-4 rounded-full bg-bright-amber text-dark-indigo font-black text-xl sm:text-2xl shadow-2xl transform hover:scale-105 transition duration-300 shadow-bright-amber/70 hover:bg-amber-400">
                     Enroll for a 30 MIN FREE TRIAL CLASS
                 </button>
             </div>
 
-            <!-- 2. Visualizing Success (Removed images as requested, replaced with key takeaways) -->
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-center text-gray-700 mb-8 border-b pb-4">Visualizing Success: Clarity, Study, and Grades</h2>
+            <!-- 2. Visualizing Success (Clean list, high contrast) -->
+            <div class="mb-12 bg-white p-8 rounded-2xl shadow-xl border-t-4 border-bright-amber">
+                <h2 class="text-3xl font-bold text-center text-dark-indigo mb-8 border-b pb-4">Our Commitment to Your Success</h2>
                 
-                <div class="max-w-4xl mx-auto text-lg text-gray-600 space-y-4 p-6 bg-white rounded-xl shadow-md">
-                    <p class="flex items-start">
-                        <span class="text-indigo-700 font-bold mr-3 text-2xl">1.</span> 
-                        **Equations Made Clear:** We break down complicated formulas and concepts into simple, manageable steps, so you always know *why* the math works.
-                    </p>
-                    <p class="flex items-start">
-                        <span class="text-indigo-700 font-bold mr-3 text-2xl">2.</span> 
-                        **Personalized Learning:** Enjoy focused, one-on-one attention or small group sessions that adapt completely to your unique learning style and pace.
-                    </p>
-                    <p class="flex items-start">
-                        <span class="text-indigo-700 font-bold mr-3 text-2xl">3.</span> 
-                        **Tools for Top Grades:** Learn effective study habits, time management, and test-taking strategies that lead to significant, measurable academic achievement.
-                    </p>
+                <div class="max-w-4xl mx-auto text-lg text-gray-700 space-y-6">
+                    <div class="flex items-start bg-indigo-50 p-4 rounded-lg shadow-sm">
+                        <span class="text-indigo-600 font-extrabold mr-3 text-2xl">✓</span> 
+                        <p>
+                            **Equations Made Clear:** We break down complicated formulas and concepts into simple, manageable steps, so you always know *why* the math works.
+                        </p>
+                    </div>
+                    <div class="flex items-start bg-indigo-50 p-4 rounded-lg shadow-sm">
+                        <span class="text-indigo-600 font-extrabold mr-3 text-2xl">✓</span> 
+                        <p>
+                            **Personalized Learning:** Enjoy focused, one-on-one attention or small group sessions that adapt completely to your unique learning style and pace.
+                        </p>
+                    </div>
+                    <div class="flex items-start bg-indigo-50 p-4 rounded-lg shadow-sm">
+                        <span class="text-indigo-600 font-extrabold mr-3 text-2xl">✓</span> 
+                        <p>
+                            **Tools for Top Grades:** Learn effective study habits, time management, and test-taking strategies that lead to significant, measurable academic achievement.
+                        </p>
+                    </div>
                 </div>
 
             </div>
 
-            <!-- 3. Core Pillars / Value Proposition -->
+            <!-- 3. Core Pillars / Value Proposition (Vibrant Cards) -->
             <div class="mb-12">
-                <h2 class="text-3xl font-bold text-center text-gray-700 mb-4">Our Collaborative Approach</h2>
+                <h2 class="text-3xl font-bold text-center text-dark-indigo mb-4">Our Collaborative Approach</h2>
                 <p class="text-center text-lg text-gray-500 mb-10 max-w-4xl mx-auto">
                     We specialize in personalized, patient instruction that ensures every student achieves genuine mathematical fluency.
                 </p>
@@ -153,9 +161,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
                     <!-- Pillar 1: Conceptual Clarity -->
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-700 hover:bg-indigo-50 transition duration-300">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-blue hover:bg-subject-blue/10 transition duration-300">
                         <!-- Icon: Lightbulb for Clarity -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-700 mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-blue mx-auto mb-4">
                             <path d="M15 14c.2-.8.8-1.7 1.5-2.4.7-.7 1.6-1.5 2.2-2.3C20.3 7.1 21 4.7 21 2c0 .2 0 .4-.1.5a10 10 0 0 1-5 18c-3 0-5.5-1.5-7.5-3.5S1 14.5 1 11.5c0-.8.1-1.6.2-2.4"/>
                             <path d="M12 22v-3"/>
                             <path d="M10 20h4"/>
@@ -170,9 +178,9 @@
                     </div>
 
                     <!-- Pillar 2: Adaptive Teaching -->
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-700 hover:bg-indigo-50 transition duration-300">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-teal hover:bg-subject-teal/10 transition duration-300">
                         <!-- Icon: Users for Adaptive Teaching / Groups -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-700 mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-teal mx-auto mb-4">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
@@ -183,9 +191,9 @@
                     </div>
 
                     <!-- Pillar 3: Progress Tracking -->
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-700 hover:bg-indigo-50 transition duration-300">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-red hover:bg-subject-red/10 transition duration-300">
                         <!-- Icon: Target for Goals / Results -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-700 mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-red mx-auto mb-4">
                             <circle cx="12" cy="12" r="10"/>
                             <circle cx="12" cy="12" r="6"/>
                             <circle cx="12" cy="12" r="2"/>
@@ -196,16 +204,16 @@
                 </div>
             </div>
 
-            <!-- 4. Subject Cards Overview -->
+            <!-- 4. Subject Cards Overview (3x3 Grid Enforced) -->
             <div class="py-10">
-                <h2 class="text-3xl font-bold mb-8 text-center text-gray-700 border-b pb-4">Specialized Subjects (Color-Coded!)</h2>
+                <h2 class="text-4xl font-extrabold mb-8 text-center text-dark-indigo border-b pb-4">Our Specialized Math Tracks</h2>
                 
-                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                     <!-- Cards will be injected here by JavaScript -->
                 </div>
                 
                 <div class="text-center mt-12">
-                     <button onclick="renderPage('rates')" class="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition duration-300">
+                     <button onclick="renderPage('rates')" class="px-6 py-3 bg-gray-300 text-gray-800 font-bold rounded-xl hover:bg-gray-400 transition duration-300 shadow-md">
                         View Complete Pricing
                     </button>
                 </div>
@@ -217,26 +225,26 @@
         <!-- ABOUT ME PAGE -->
         <!-- ==================================== -->
         <section id="about" class="page-container">
-            <div class="bg-white p-10 rounded-xl shadow-xl border-t-4 border-indigo-700 max-w-3xl mx-auto">
-                <h2 class="text-4xl font-bold text-indigo-700 mb-6 text-center">About the Tutor</h2>
+            <div class="bg-white p-10 rounded-2xl shadow-2xl border-t-8 border-indigo-600 max-w-3xl mx-auto">
+                <h2 class="text-4xl font-extrabold text-indigo-700 mb-6 text-center">About the Tutor</h2>
                 
                 <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
-                    <p>
+                    <p class="font-medium">
                         I am an Experienced and dedicated math educator with a degree in Mathematics and a strong background teaching elementary, middle, and high school students. 
                     </p>
                     <p>
-                        I specialize in Algebra, Geometry, Precalculus, and Calculus AB, using a patient and adaptive teaching style that meets students where they are. I tailor lessons to each group and stay with a concept until it truly clicks, consistently earning positive feedback for clarity and and effectiveness.
+                        I specialize in **Algebra, Geometry, Precalculus, and Calculus AB**, using a patient and adaptive teaching style that meets students where they are. I tailor lessons to each group and stay with a concept until it truly clicks, consistently earning positive feedback for clarity and and effectiveness.
                     </p>
                     <p>
                         Beyond the classroom, I create engaging, easy-to-follow math content on my YouTube channel 
-                        <a href="https://www.youtube.com/@thismathisfun" target="_blank" class="font-semibold text-amber-500 hover:text-amber-600 underline transition duration-200">
+                        <a href="https://www.youtube.com/@thismathisfun" target="_blank" class="font-semibold text-bright-amber hover:text-amber-600 underline transition duration-200">
                             This Math Is Fun
                         </a>, making learning accessible to a wider audience.
                     </p>
                 </div>
                 
                 <div class="mt-10 text-center">
-                    <button onclick="renderPage('form')" class="px-8 py-4 bg-amber-500 text-white font-semibold text-xl rounded-2xl hover:bg-amber-600 transition duration-300 shadow-xl shadow-amber-500/50">
+                    <button onclick="renderPage('form')" class="px-8 py-4 bg-bright-amber text-dark-indigo font-black text-xl rounded-2xl hover:bg-amber-400 transition duration-300 shadow-xl shadow-bright-amber/70">
                         Inquire About a Lesson
                     </button>
                 </div>
@@ -247,10 +255,10 @@
         <!-- SUBJECT DETAILS PAGE -->
         <!-- ==================================== -->
         <section id="subject-details" class="page-container">
-            <div id="subject-detail-content" class="bg-white p-8 rounded-xl shadow-xl border-t-4 border-indigo-700">
+            <div id="subject-detail-content" class="bg-white p-8 rounded-xl shadow-2xl border-t-8 border-indigo-600">
                 <!-- Content will be injected here by JavaScript -->
             </div>
-            <button onclick="renderPage('home')" class="mt-6 px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition duration-300">
+            <button onclick="renderPage('home')" class="mt-6 px-6 py-3 bg-gray-300 text-gray-800 font-semibold rounded-xl hover:bg-gray-400 transition duration-300">
                 &larr; Back to Home
             </button>
         </section>
@@ -260,51 +268,51 @@
         <!-- RATES PAGE -->
         <!-- ==================================== -->
         <section id="rates" class="page-container">
-            <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">Our Tutoring Rates</h2>
+            <h2 class="text-4xl font-extrabold text-center text-dark-indigo mb-10">Our Tutoring Rates</h2>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 
                 <!-- Group Classes Card -->
-                <div class="bg-white p-8 rounded-xl shadow-xl border-t-4 border-indigo-700">
-                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">Group Classes (Hourly)</h3>
-                    <ul class="space-y-4">
-                        <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Elementary Math to Geometry</span>
-                            <span class="text-2xl font-bold text-amber-500">$25</span>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-indigo-600">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 text-indigo-700">Group Classes (Hourly)</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50">
+                            <span class="font-semibold">Elementary Math to Geometry</span>
+                            <span class="text-2xl font-extrabold text-bright-amber">$25</span>
                         </li>
-                        <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Algebra 2 / Trigonometry</span>
-                            <span class="text-2xl font-bold text-amber-500">$30</span>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50">
+                            <span class="font-semibold">Algebra 2 / Trigonometry</span>
+                            <span class="text-2xl font-extrabold text-bright-amber">$30</span>
                         </li>
-                        <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Pre-Calculus and Above</span>
-                            <span class="text-2xl font-bold text-amber-500">$40</span>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-indigo-50">
+                            <span class="font-semibold">Pre-Calculus and Above</span>
+                            <span class="text-2xl font-extrabold text-bright-amber">$40</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- One-on-One Card -->
-                <div class="bg-white p-8 rounded-xl shadow-xl border-t-4 border-indigo-800">
-                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">One-on-One (Hourly)</h3>
-                    <ul class="space-y-4">
-                        <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Elementary Math to Geometry</span>
-                            <span class="text-2xl font-bold text-amber-500">$50</span>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-bright-amber">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 text-bright-amber">One-on-One (Hourly)</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50">
+                            <span class="font-semibold">Elementary Math to Geometry</span>
+                            <span class="text-2xl font-extrabold text-indigo-700">$50</span>
                         </li>
-                        <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Algebra 2 / Trigonometry</span>
-                            <span class="text-2xl font-bold text-amber-500">$55</span>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50">
+                            <span class="font-semibold">Algebra 2 / Trigonometry</span>
+                            <span class="text-2xl font-extrabold text-indigo-700">$55</span>
                         </li>
-                        <li class="flex justify-between items-center text-lg">
-                            <span class="font-medium">Pre-Calculus and Above</span>
-                            <span class="text-2xl font-bold text-amber-500">$75</span>
+                        <li class="flex justify-between items-center text-lg p-2 rounded-lg bg-amber-50">
+                            <span class="font-semibold">Pre-Calculus and Above</span>
+                            <span class="text-2xl font-extrabold text-indigo-700">$75</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                 <button onclick="renderPage('form')" class="px-8 py-4 bg-amber-500 text-white font-semibold text-xl rounded-2xl hover:bg-amber-600 transition duration-300 shadow-xl shadow-amber-500/50">
+                 <button onclick="renderPage('form')" class="px-8 py-4 bg-indigo-600 text-white font-black text-xl rounded-2xl hover:bg-indigo-700 transition duration-300 shadow-xl shadow-indigo-600/70">
                     Book Your Trial Class Today!
                 </button>
             </div>
@@ -314,43 +322,43 @@
         <!-- REVIEWS PAGE -->
         <!-- ==================================== -->
         <section id="reviews" class="page-container">
-            <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10">What Students and Parents Say</h2>
+            <h2 class="text-4xl font-extrabold text-center text-dark-indigo mb-10">What Students and Parents Say</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 
                 <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-700">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-bright-amber">
                     <div class="flex items-center mb-3">
-                        <span class="text-yellow-500 text-xl mr-2">★★★★★</span>
-                        <span class="font-semibold text-lg text-gray-700">A huge confidence boost!</span>
+                        <span class="text-yellow-500 text-2xl mr-2">⭐</span>
+                        <span class="font-bold text-lg text-dark-indigo">A huge confidence boost!</span>
                     </div>
-                    <p class="text-gray-600 italic">"My daughter went from dreading geometry to actually understanding the proofs. The small group sessions are fantastic and the tutor is so patient. Highly recommend!"</p>
-                    <p class="mt-3 text-right text-sm font-medium text-indigo-700">— Sarah K., Parent of a Geometry Student</p>
+                    <p class="text-gray-700 italic">"My daughter went from dreading geometry to actually understanding the proofs. The small group sessions are fantastic and the tutor is so patient. Highly recommend!"</p>
+                    <p class="mt-3 text-right text-sm font-bold text-indigo-700">— Sarah K., Parent of a Geometry Student</p>
                 </div>
 
                 <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-700">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-bright-amber">
                     <div class="flex items-center mb-3">
-                        <span class="text-yellow-500 text-xl mr-2">★★★★★</span>
-                        <span class="font-semibold text-lg text-gray-700">Calculus makes sense now!</span>
+                        <span class="text-yellow-500 text-2xl mr-2">⭐</span>
+                        <span class="font-bold text-lg text-dark-indigo">Calculus makes sense now!</span>
                     </div>
-                    <p class="text-gray-600 italic">"I struggled with the jump to Calculus-AB, but the one-on-one sessions here broke down the concepts perfectly. My test scores improved drastically!"</p>
-                    <p class="mt-3 text-right text-sm font-medium text-indigo-700">— Alex V., High School Student</p>
+                    <p class="text-gray-700 italic">"I struggled with the jump to Calculus-AB, but the one-on-one sessions here broke down the concepts perfectly. My test scores improved drastically!"</p>
+                    <p class="mt-3 text-right text-sm font-bold text-indigo-700">— Alex V., High School Student</p>
                 </div>
 
                 <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-700">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-bright-amber">
                     <div class="flex items-center mb-3">
-                        <span class="text-yellow-500 text-xl mr-2">★★★★★</span>
-                        <span class="font-semibold text-lg text-gray-700">Engaging and Fun</span>
+                        <span class="text-yellow-500 text-2xl mr-2">⭐</span>
+                        <span class="font-bold text-lg text-dark-indigo">Engaging and Fun</span>
                     </div>
-                    <p class="text-gray-600 italic">"The elementary math tutoring is so engaging. My son loves the lessons and it feels more like fun practice than schoolwork. A great investment in his math foundation."</p>
-                    <p class="mt-3 text-right text-sm font-medium text-indigo-700">— Mark D., Parent of a 4th Grader</p>
+                    <p class="text-gray-700 italic">"The elementary math tutoring is so engaging. My son loves the lessons and it feels more like fun practice than schoolwork. A great investment in his math foundation."</p>
+                    <p class="mt-3 text-right text-sm font-bold text-indigo-700">— Mark D., Parent of a 4th Grader</p>
                 </div>
             </div>
             
             <p class="text-center text-gray-600 mt-12">
-                Have a great experience to share? <a href="#" onclick="renderPage('form')" class="font-semibold text-amber-500 hover:text-amber-600">Tell us about it!</a>
+                Have a great experience to share? <a href="#" onclick="renderPage('form')" class="font-semibold text-bright-amber hover:text-amber-600">Tell us about it!</a>
             </p>
         </section>
 
@@ -358,26 +366,26 @@
         <!-- CONTACT INFO PAGE -->
         <!-- ==================================== -->
         <section id="contact" class="page-container">
-            <div class="bg-white p-10 rounded-xl shadow-xl border-t-4 border-indigo-700 max-w-lg mx-auto text-center">
-                <h2 class="text-4xl font-bold text-indigo-700 mb-8">Get In Touch</h2>
+            <div class="bg-white p-10 rounded-2xl shadow-xl border-t-8 border-indigo-600 max-w-lg mx-auto text-center">
+                <h2 class="text-4xl font-extrabold text-indigo-700 mb-8">Get In Touch</h2>
                 
                 <div class="space-y-6">
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <p class="text-sm font-semibold text-gray-500">EMAIL ADDRESS</p>
-                        <a href="mailto:thismathisfun@gmail.com" class="text-2xl font-medium text-amber-500 hover:text-amber-600 transition duration-200">
+                    <div class="p-4 bg-indigo-50 rounded-xl shadow-md">
+                        <p class="text-sm font-bold text-indigo-700">EMAIL ADDRESS</p>
+                        <a href="mailto:thismathisfun@gmail.com" class="text-2xl font-black text-bright-amber hover:text-amber-600 transition duration-200">
                             thismathisfun@gmail.com
                         </a>
                     </div>
                     
-                    <div class="p-4 bg-gray-50 rounded-lg">
-                        <p class="text-sm font-semibold text-gray-500">PHONE NUMBER (Call or Text)</p>
-                        <a href="tel:+17037320080" class="text-2xl font-medium text-amber-500 hover:text-amber-600 transition duration-200">
+                    <div class="p-4 bg-indigo-50 rounded-xl shadow-md">
+                        <p class="text-sm font-bold text-indigo-700">PHONE NUMBER (Call or Text)</p>
+                        <a href="tel:+17037320080" class="text-2xl font-black text-bright-amber hover:text-amber-600 transition duration-200">
                             +1 (703) 732-0080
                         </a>
                     </div>
                 </div>
 
-                <button onclick="renderPage('form')" class="mt-10 px-6 py-3 bg-indigo-700 text-white font-semibold rounded-xl hover:bg-indigo-800 transition duration-300 shadow-md">
+                <button onclick="renderPage('form')" class="mt-10 px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
                     Send a Message
                 </button>
             </div>
@@ -387,24 +395,20 @@
         <!-- CONTACT FORM PAGE (Mailto) -->
         <!-- ==================================== -->
         <section id="form" class="page-container">
-            <div class="bg-white p-10 rounded-xl shadow-xl border-t-4 border-indigo-700 max-w-2xl mx-auto">
-                <h2 class="text-4xl font-bold text-indigo-700 mb-4 text-center">Submit Your Inquiry</h2>
-                <p class="text-center text-gray-600 mb-8">
-                    Fill out the form below. When you click 'Submit', your default email program will open to send the message to <span class="font-semibold">thismathisfun@gmail.com</span>.
+            <div class="bg-white p-10 rounded-2xl shadow-2xl border-t-8 border-indigo-600 max-w-2xl mx-auto">
+                <h2 class="text-4xl font-extrabold text-indigo-700 mb-4 text-center">Submit Your Inquiry</h2>
+                <p class="text-center text-gray-600 mb-8 font-medium">
+                    Fill out the form below. When you click 'Submit', your default email program will open to send the message to <span class="font-bold">thismathisfun@gmail.com</span>.
                 </p>
 
-                <!-- 
-                    The action uses mailto: and JavaScript is used to dynamically build the body 
-                    and subject based on user input before opening the email client.
-                -->
                 <form id="mailto-form" class="space-y-6" onsubmit="handleMailtoForm(event)">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Full Name</label>
-                        <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                        <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-bright-amber focus:border-bright-amber">
                     </div>
                     <div>
                         <label for="student-level" class="block text-sm font-medium text-gray-700 mb-1">Student's Current Subject/Level</label>
-                        <select id="student-level" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                        <select id="student-level" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-bright-amber focus:border-bright-amber">
                             <option value="">-- Select a subject or grade --</option>
                             <option value="Elementary School Math">Elementary School Math (Gr. 1-5)</option>
                             <option value="Math 6">Math 6</option>
@@ -420,10 +424,10 @@
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message/Request Details</label>
-                        <textarea id="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"></textarea>
+                        <textarea id="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-bright-amber focus:border-bright-amber"></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full px-4 py-3 bg-indigo-700 text-white font-semibold rounded-xl hover:bg-indigo-800 transition duration-300 shadow-lg shadow-indigo-700/50">
+                    <button type="submit" class="w-full px-4 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
                         Submit Inquiry via Email
                     </button>
                 </form>
@@ -483,14 +487,19 @@
             let html = '';
 
             subjectData.forEach(subject => {
+                // Ensure the dynamic class names are correctly formatted for Tailwind JIT usage
+                const borderColor = `border-[${subject.colorClass}]`;
+                const hoverBgClass = `hover:${subject.hoverBg}`;
+                const hoverTextClass = `text-${subject.hoverText.replace('text-', '')}`;
+
                 html += `
                     <div onclick="renderPage('subject-details', '${subject.title}')" 
-                         class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer border-l-8 border-[${subject.colorClass}] ${subject.hoverBg} h-full flex flex-col justify-between">
+                         class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer border-l-8 ${borderColor} ${subject.hoverBg} h-full flex flex-col justify-between">
                         <div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">${subject.title}</h3>
-                            <p class="text-sm ${subject.hoverText} font-semibold mb-4">${subject.level}</p>
+                            <p class="text-sm ${hoverTextClass} font-semibold mb-4">${subject.level}</p>
                         </div>
-                        <span class="mt-4 inline-block text-sm font-medium text-amber-500 hover:underline">See Rates & Details &rarr;</span>
+                        <span class="mt-4 inline-block text-sm font-bold text-dark-indigo hover:underline">See Rates & Details &rarr;</span>
                     </div>
                 `;
             });
@@ -509,27 +518,37 @@
             }
 
             const rates = rateMap[subject.ratesRef];
+            
+            // Dynamic classes for the detail page
+            const colorClass = `text-${subject.colorClass.replace('#', '')}`;
+            const borderColor = `border-2 border-[${subject.colorClass}]`;
+            const bgColor = `${subject.hoverBg}`;
 
             contentDiv.innerHTML = `
                 <h2 class="text-5xl font-extrabold text-indigo-700 mb-3">${subject.title}</h2>
                 <p class="text-xl text-gray-500 mb-6">${subject.level}</p>
                 
-                <!-- Rate sentence uses the subject's color -->
-                <p class="text-[${subject.colorClass}] font-medium text-lg mb-8 text-center border-b pb-4">This subject is covered under our ${subject.ratesRef} pricing tier.</p>
+                <p class="text-[${subject.colorClass}] font-black text-lg mb-8 text-center border-b-2 border-dashed border-gray-200 pb-4">This subject is covered under our ${subject.ratesRef} pricing tier.</p>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Rate Card 1 uses subject's color -->
-                    <div class="p-6 rounded-xl border-2 border-[${subject.colorClass}] shadow-md ${subject.hoverBg}">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Rate Card 1 -->
+                    <div class="p-6 rounded-xl ${borderColor} shadow-lg ${bgColor}">
                         <h4 class="text-xl font-bold text-gray-800 mb-2">Group Class Rate</h4>
-                        <p class="text-4xl font-extrabold text-[${subject.colorClass}]">$${rates.group}<span class="text-xl font-medium"> / hr</span></p>
-                        <p class="text-sm text-gray-600 mt-2">Perfect for collaborative learning with peers.</p>
+                        <p class="text-4xl font-black text-[${subject.colorClass}]">$${rates.group}<span class="text-xl font-medium"> / hr</span></p>
+                        <p class="text-sm text-gray-700 mt-2">Perfect for collaborative learning with peers.</p>
                     </div>
-                    <!-- Rate Card 2 uses subject's color -->
-                    <div class="p-6 rounded-xl border-2 border-[${subject.colorClass}] shadow-md ${subject.hoverBg}">
+                    <!-- Rate Card 2 -->
+                    <div class="p-6 rounded-xl ${borderColor} shadow-lg ${bgColor}">
                         <h4 class="text-xl font-bold text-gray-800 mb-2">One-on-One Rate</h4>
-                        <p class="text-4xl font-extrabold text-[${subject.colorClass}]">$${rates.oneOnOne}<span class="text-xl font-medium"> / hr</span></p>
-                        <p class="text-sm text-gray-600 mt-2">Fully personalized, focused attention.</p>
+                        <p class="text-4xl font-black text-[${subject.colorClass}]">$${rates.oneOnOne}<span class="text-xl font-medium"> / hr</span></p>
+                        <p class="text-sm text-gray-700 mt-2">Fully personalized, focused attention.</p>
                     </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <button onclick="renderPage('form')" class="px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
+                        Sign Up Now for ${subject.title}
+                    </button>
                 </div>
             `;
         }
