@@ -280,8 +280,8 @@
             <div id="subject-detail-content" class="bg-white p-8 rounded-xl shadow-2xl border-t-8 border-indigo-600">
                 <!-- Content will be injected here by JavaScript -->
             </div>
-            <button onclick="renderPage('home')" class="mt-6 px-6 py-3 bg-gray-300 text-gray-800 font-semibold rounded-xl hover:bg-gray-400 transition duration-300">
-                &larr; Back to Home
+            <button onclick="renderPage('subjects')" class="mt-6 px-6 py-3 bg-gray-300 text-gray-800 font-semibold rounded-xl hover:bg-gray-400 transition duration-300">
+                &larr; Back to Subjects
             </button>
         </section>
         
@@ -297,7 +297,7 @@
 
                 <div class="mb-8">
                     <p class="text-center text-2xl font-bold text-bright-amber mb-4">
-                        21920 Bellair Ct, Ashburn, VA 20147
+                        21920 Bellair Ct, Ashburn, VA 20148
                     </p>
                     
                     <!-- Google Maps Embed for 21920 Bellair Ct Ashburn VA -->
@@ -488,7 +488,7 @@
         // Map for rate lookup (used in subject detail)
         const rateMap = {
             "Elementary to Geometry": { group: 25, oneOnOne: 50 },
-            "Algebra 2/Trig": { group: 30, oneOnOne: 60 }, // UPDATED from 55 to 60
+            "Algebra 2/Trig": { group: 30, oneOnOne: 60 }, // UPDATED rate
             "Pre-Calc and above": { group: 40, oneOnOne: 75 },
             // Specialized rate tier for Critical Thinking
             "AOLSpecialized": { group: 45, oneOnOne: 70 },
@@ -539,21 +539,25 @@
             container.innerHTML = html;
         }
 
-        // --- All Subjects Page Rendering (NEW) ---
+        // --- All Subjects Page Rendering (UPDATED FOR COLOR CODING) ---
         function renderAllSubjectsPage() {
             const container = document.getElementById('all-subjects-list');
             let html = '';
 
             subjectData.forEach(subject => {
                 const rates = rateMap[subject.ratesRef];
-                const borderColor = `border-[${subject.colorClass}]`;
-                const bgColor = `bg-white`;
+                const borderColorClass = `border-[${subject.colorClass}]`;
+                const bgColorClass = subject.hoverBg; // Use the light background color (e.g., bg-red-50)
+                const hoverEffectClass = `hover:shadow-2xl`; // Simple shadow change for hover
+                const hoverTextClass = subject.hoverText.includes('text-') ? subject.hoverText : `text-${subject.hoverText}`;
+                const oneOnOneRateColor = `text-[${subject.colorClass}]`;
+
 
                 html += `
-                    <div class="p-6 rounded-2xl shadow-lg border-l-8 ${borderColor} ${bgColor} hover:shadow-xl transition duration-300">
+                    <div class="p-6 rounded-2xl shadow-lg border-l-8 ${borderColorClass} ${bgColorClass} ${hoverEffectClass} transition duration-300">
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 border-b pb-2">
                             <h3 class="text-2xl font-bold text-gray-800">${subject.title}</h3>
-                            <span class="text-sm font-semibold text-gray-500 mt-1 sm:mt-0">${subject.level}</span>
+                            <span class="text-sm font-semibold text-gray-600 mt-1 sm:mt-0">${subject.level}</span>
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4 text-center">
@@ -563,12 +567,14 @@
                             </div>
                             <div>
                                 <p class="text-sm font-medium text-gray-500">One-on-One Rate</p>
-                                <p class="text-2xl font-black text-bright-amber">$${rates.oneOnOne}<span class="text-base font-medium">/hr</span></p>
+                                <!-- Using the subject's primary color for the One-on-One rate for vibrancy -->
+                                <p class="text-2xl font-black ${oneOnOneRateColor}">$${rates.oneOnOne}<span class="text-base font-medium">/hr</span></p>
                             </div>
                         </div>
                         
                         <div class="mt-4 text-right">
-                            <button onclick="renderPage('subject-details', '${subject.title}')" class="text-sm font-bold text-indigo-600 hover:text-indigo-800 transition duration-150">
+                            <!-- Using the subject's primary text color for the detail button -->
+                            <button onclick="renderPage('subject-details', '${subject.title}')" class="text-sm font-bold ${hoverTextClass} hover:underline transition duration-150">
                                 View Details &rarr;
                             </button>
                         </div>
