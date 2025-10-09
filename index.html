@@ -236,7 +236,7 @@
             </div>
             
             <div class="text-center mt-12">
-                 <button onclick="renderPage('form')" class="px-8 py-4 bg-bright-amber text-dark-indigo font-black text-xl rounded-2xl hover:bg-amber-400 transition duration-300 shadow-xl shadow-bright-amber/70">
+                   <button onclick="renderPage('form')" class="px-8 py-4 bg-bright-amber text-dark-indigo font-black text-xl rounded-2xl hover:bg-amber-400 transition duration-300 shadow-xl shadow-bright-amber/70">
                     Book Your First Session
                 </button>
             </div>
@@ -305,13 +305,8 @@
                         <iframe 
                             src="https://maps.google.com/maps?q=21920%20bellair%20ct%20ashburn%20va&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                             frameborder="0" 
-                            scrolling="no" 
-                            marginheight="0" 
-                            marginwidth="0"
+                            loading="lazy"
                             class="absolute top-0 left-0 w-full h-full"
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
                 </div>
@@ -381,7 +376,7 @@
             </div>
             
             <div class="text-center mt-12">
-                 <button onclick="renderPage('form')" class="px-8 py-4 bg-indigo-600 text-white font-black text-xl rounded-2xl hover:bg-indigo-700 transition duration-300 shadow-xl shadow-indigo-600/70">
+                   <button onclick="renderPage('form')" class="px-8 py-4 bg-indigo-600 text-white font-black text-xl rounded-2xl hover:bg-indigo-700 transition duration-300 shadow-xl shadow-indigo-600/70">
                     Book Your Trial Class Today!
                 </button>
             </div>
@@ -468,229 +463,270 @@
 
     <!-- JavaScript for Page Routing and Content Generation -->
     <script>
-        // Updated subject data with color classes
+        // Updated subject data with color classes and full details
         const subjectData = [
             // Critical Thinking moved to top
-            { title: "Critical Thinking Questions", level: "High-Level Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },
+            { 
+                title: "Critical Thinking Questions", 
+                level: "High-Level Problem Solving & Competition Prep", 
+                ratesRef: "AOLSpecialized", 
+                colorClass: "subject-amber", 
+                hoverBg: "bg-amber-50", 
+                hoverText: "text-amber-600",
+                description: "Specialized coaching for advanced students focusing on logical reasoning, non-routine problems, and preparation for math competitions (e.g., AMC, Math Counts, AIME). This track develops deep analytical skills beyond standard curriculum."
+            },
             
             // Original list follows
-            { title: "Calculus-AB", level: "Advanced High School / College Prep", ratesRef: "Pre-Calc and above", colorClass: "subject-red", hoverBg: "bg-red-50", hoverText: "text-red-600" },
-            { title: "Pre-Calculus (All Tracks)", level: "High School", ratesRef: "Pre-Calc and above", colorClass: "subject-orange", hoverBg: "bg-orange-50", hoverText: "text-orange-600" },
-            { title: "Algebra 2 / Trig", level: "High School", ratesRef: "Algebra 2/Trig", colorClass: "subject-yellow", hoverBg: "bg-yellow-50", hoverText: "text-yellow-600" },
-            { title: "Geometry", level: "High School / Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-green", hoverBg: "bg-green-50", hoverText: "text-green-600" },
-            { title: "Algebra 1", level: "Middle / High School", ratesRef: "Elementary to Geometry", colorClass: "subject-teal", hoverBg: "bg-teal-50", hoverText: "text-teal-600" },
-            { title: "Pre-Algebra", level: "Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-cyan", hoverBg: "bg-cyan-50", hoverText: "text-cyan-600" },
-            { title: "Foundations of Algebra", level: "Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-blue", hoverBg: "bg-blue-50", hoverText: "text-blue-600" },
-            { title: "Math 6", level: "Middle School", ratesRef: "Elementary to Geometry", colorClass: "subject-violet", hoverBg: "bg-violet-50", hoverText: "text-violet-600" },
-            { title: "Elementary School Math", level: "Elementary", ratesRef: "Elementary to Geometry", colorClass: "subject-pink", hoverBg: "bg-pink-50", hoverText: "text-pink-600" },
+            { 
+                title: "Calculus-AB", 
+                level: "Advanced High School / College Prep", 
+                ratesRef: "Pre-Calc and above", 
+                colorClass: "subject-red", 
+                hoverBg: "bg-red-50", 
+                hoverText: "text-red-600",
+                description: "Comprehensive coverage of limits, derivatives (rate of change, optimization), integrals (accumulation, area), and the Fundamental Theorem of Calculus. Focus on real-world applications and AP exam readiness."
+            },
+            { 
+                title: "Pre-Calculus (All Tracks)", 
+                level: "High School", 
+                ratesRef: "Pre-Calc and above", 
+                colorClass: "subject-orange", 
+                hoverBg: "bg-orange-50", 
+                hoverText: "text-orange-600",
+                description: "Bridging Algebra II and Calculus. Topics include advanced functions (polynomial, rational, logarithmic, exponential), sequences/series, and thorough study of trigonometry, polar coordinates, and complex numbers."
+            },
+            { 
+                title: "Algebra 2 / Trig", 
+                level: "High School", 
+                ratesRef: "Algebra 2/Trig", 
+                colorClass: "subject-yellow", 
+                hoverBg: "bg-yellow-50", 
+                hoverText: "text-yellow-600",
+                description: "Mastery of algebraic concepts: systems of equations, matrices, quadratic equations, complex numbers, conic sections, and probability. Includes in-depth focus on trigonometry."
+            },
+            { 
+                title: "Geometry", 
+                level: "High School / Middle School", 
+                ratesRef: "Elementary to Geometry", 
+                colorClass: "subject-green", 
+                hoverBg: "bg-green-50", 
+                hoverText: "text-green-600",
+                description: "Focus on theorems, proofs, deductive reasoning, spatial visualization, area, volume, and coordinate geometry. Building solid logical foundations vital for all future math courses."
+            },
+            { 
+                title: "Algebra 1", 
+                level: "Middle School / High School", 
+                ratesRef: "Elementary to Geometry", 
+                colorClass: "subject-teal", 
+                hoverBg: "bg-teal-50", 
+                hoverText: "text-teal-600",
+                description: "The core foundation of high school math. Covers linear equations, inequalities, graphing, functions, polynomials, and an introduction to quadratic functions. Essential for future success."
+            },
+            { 
+                title: "Pre-Algebra", 
+                level: "Middle School", 
+                ratesRef: "Elementary to Geometry", 
+                colorClass: "subject-cyan", 
+                hoverBg: "bg-cyan-50", 
+                hoverText: "text-cyan-600",
+                description: "Transitioning from arithmetic to algebraic thinking. Covers integers, rational numbers, basic equations, percentages, ratios, proportions, and introductory statistical concepts."
+            },
+            { 
+                title: "Math 6", 
+                level: "Middle School", 
+                ratesRef: "Elementary to Geometry", 
+                colorClass: "subject-blue", 
+                hoverBg: "bg-blue-50", 
+                hoverText: "text-blue-600",
+                description: "Building intermediate math literacy in advanced division/multiplication, fractions, decimals, basic statistics, and geometry fundamentals (perimeter, area, volume)."
+            },
+            { 
+                title: "Elementary School Math (Gr. 1-5)", 
+                level: "Foundational Skills", 
+                ratesRef: "Elementary to Geometry", 
+                colorClass: "subject-violet", 
+                hoverBg: "bg-violet-50", 
+                hoverText: "text-violet-600",
+                description: "Solidifying arithmetic, number sense, place value, and introductory problem-solving techniques for young learners. We ensure a confident start to mathematical concepts."
+            },
         ];
 
-        // Map for rate lookup (used in subject detail)
-        const rateMap = {
-            "Elementary to Geometry": { group: 25, oneOnOne: 50 },
-            "Algebra 2/Trig": { group: 30, oneOnOne: 60 }, // UPDATED rate
-            "Pre-Calc and above": { group: 40, oneOnOne: 75 },
-            // Specialized rate tier for Critical Thinking
-            "AOLSpecialized": { group: 45, oneOnOne: 70 },
-        };
-
-        // --- Core Page Rendering Logic ---
-        function renderPage(pageName, subjectTitle = null) {
+        /**
+         * Page Routing Function
+         * Hides all page containers and shows the requested one.
+         * @param {string} pageId - The ID of the section to show (e.g., 'home', 'subjects').
+         */
+        function renderPage(pageId) {
             const pages = document.querySelectorAll('.page-container');
             pages.forEach(page => {
                 page.classList.remove('active-page');
             });
-            
-            const activePage = document.getElementById(pageName);
-            if (activePage) {
-                activePage.classList.add('active-page');
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active-page');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-
-            // Special handling for subject details
-            if (pageName === 'subject-details' && subjectTitle) {
-                renderSubjectDetails(subjectTitle);
-            } else if (pageName === 'subjects') {
-                renderAllSubjectsPage();
-            }
+            // Hide mobile menu after navigation
+            document.getElementById('mobile-menu').classList.add('hidden');
         }
 
-        // --- Subject Card Generation (For Home Page) ---
+        /**
+         * Generates the brief subject cards for the Home page.
+         */
         function generateSubjectCards() {
             const container = document.getElementById('subject-cards-container');
-            let html = '';
+            if (!container) return;
 
-            subjectData.forEach(subject => {
-                // The hoverText class needs to be defined like 'text-red-600'
-                const hoverTextClass = subject.hoverText.includes('text-') ? subject.hoverText : `text-${subject.hoverText}`;
+            // Take the first 9 subjects for the 3x3 grid on the home page
+            const cardsHtml = subjectData.slice(0, 9).map(subject => `
+                <div onclick="renderSubjectDetail('${subject.title}')" 
+                     class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-${subject.colorClass} 
+                            hover:${subject.hoverBg} cursor-pointer transform hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-xl font-extrabold text-${subject.colorClass} mb-2">${subject.title}</h3>
+                    <p class="text-gray-700 font-semibold">${subject.level}</p>
+                    <p class="text-sm text-gray-500 mt-2 line-clamp-2">${subject.description}</p>
+                    <span class="inline-block mt-3 text-sm font-bold text-gray-900 underline hover:text-indigo-600">
+                        View Details &rarr;
+                    </span>
+                </div>
+            `).join('');
 
-                html += `
-                    <div onclick="renderPage('subject-details', '${subject.title}')" 
-                         class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer border-l-8 border-[${subject.colorClass}] ${subject.hoverBg} h-full flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">${subject.title}</h3>
-                            <p class="text-sm ${hoverTextClass} font-semibold mb-4">${subject.level}</p>
-                        </div>
-                        <span class="mt-4 inline-block text-sm font-bold text-dark-indigo hover:underline">See Rates & Details &rarr;</span>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
+            container.innerHTML = cardsHtml;
         }
 
-        // --- All Subjects Page Rendering (UPDATED FOR COLOR CODING) ---
-        function renderAllSubjectsPage() {
+        /**
+         * Generates the detailed list of subjects for the Subjects page.
+         */
+        function generateAllSubjectsList() {
             const container = document.getElementById('all-subjects-list');
-            let html = '';
+            if (!container) return;
 
-            subjectData.forEach(subject => {
-                const rates = rateMap[subject.ratesRef];
-                const borderColorClass = `border-[${subject.colorClass}]`;
-                const bgColorClass = subject.hoverBg; // Use the light background color (e.g., bg-red-50)
-                const hoverEffectClass = `hover:shadow-2xl`; // Simple shadow change for hover
-                const hoverTextClass = subject.hoverText.includes('text-') ? subject.hoverText : `text-${subject.hoverText}`;
-                const oneOnOneRateColor = `text-[${subject.colorClass}]`;
+            const listHtml = subjectData.map(subject => `
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-${subject.colorClass} hover:${subject.hoverBg} transition duration-300">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dark-indigo">${subject.title}</h3>
+                            <p class="text-lg text-${subject.colorClass} font-semibold">${subject.level}</p>
+                        </div>
+                        <button onclick="renderSubjectDetail('${subject.title}')" 
+                                class="mt-4 sm:mt-0 px-4 py-2 bg-indigo-500 text-white font-medium rounded-lg 
+                                       hover:bg-indigo-600 transition duration-300 shadow-md flex-shrink-0">
+                            Learn More & Rates
+                        </button>
+                    </div>
+                    <p class="mt-3 text-gray-600">${subject.description}</p>
+                </div>
+            `).join('');
 
+            container.innerHTML = listHtml;
+        }
 
-                html += `
-                    <div class="p-6 rounded-2xl shadow-lg border-l-8 ${borderColorClass} ${bgColorClass} ${hoverEffectClass} transition duration-300">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 border-b pb-2">
-                            <h3 class="text-2xl font-bold text-gray-800">${subject.title}</h3>
-                            <span class="text-sm font-semibold text-gray-600 mt-1 sm:mt-0">${subject.level}</span>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-4 text-center">
-                            <div>
-                                <p class="text-sm font-medium text-gray-500">Group Rate</p>
-                                <p class="text-2xl font-black text-indigo-600">$${rates.group}<span class="text-base font-medium">/hr</span></p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-500">One-on-One Rate</p>
-                                <!-- Using the subject's primary color for the One-on-One rate for vibrancy -->
-                                <p class="text-2xl font-black ${oneOnOneRateColor}">$${rates.oneOnOne}<span class="text-base font-medium">/hr</span></p>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-4 text-right">
-                            <!-- Using the subject's primary text color for the detail button -->
-                            <button onclick="renderPage('subject-details', '${subject.title}')" class="text-sm font-bold ${hoverTextClass} hover:underline transition duration-150">
-                                View Details &rarr;
-                            </button>
-                        </div>
+        /**
+         * Renders the specific subject detail page.
+         * @param {string} title - The title of the subject.
+         */
+        function renderSubjectDetail(title) {
+            const subject = subjectData.find(s => s.title === title);
+            const container = document.getElementById('subject-detail-content');
+
+            if (subject && container) {
+                container.innerHTML = `
+                    <h2 class="text-4xl font-extrabold text-${subject.colorClass} mb-4">${subject.title}</h2>
+                    <p class="text-2xl font-semibold text-dark-indigo mb-6 border-b pb-4">${subject.level}</p>
+                    
+                    <p class="text-xl text-gray-700 leading-relaxed mb-8">${subject.description}</p>
+
+                    <div class="p-6 bg-indigo-50 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-4">Pricing Reference</h3>
+                        <p class="text-lg text-gray-700">This subject falls under the 
+                            <strong class="font-extrabold text-bright-amber">${subject.ratesRef}</strong> 
+                            rate category on the <a href="#" onclick="renderPage('rates')" class="underline hover:text-indigo-600">Rates page</a>.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <button onclick="renderPage('form')" class="px-8 py-4 bg-indigo-600 text-white font-black text-xl rounded-2xl hover:bg-indigo-700 transition duration-300 shadow-xl shadow-indigo-600/70">
+                            Request Session for ${subject.title}
+                        </button>
                     </div>
                 `;
-            });
-            container.innerHTML = html;
+                renderPage('subject-details');
+            } else {
+                console.error("Subject not found or container missing.");
+                renderPage('subjects'); // Fallback to main subject list
+            }
         }
-        
-        // --- Subject Detail Page Rendering ---
-        function renderSubjectDetails(title) {
-            const subject = subjectData.find(s => s.title === title);
-            const contentDiv = document.getElementById('subject-detail-content');
 
-            if (!subject) {
-                contentDiv.innerHTML = '<h2 class="text-4xl font-bold text-red-500">Subject Not Found</h2>';
+        /**
+         * Handles the mailto form submission.
+         * @param {Event} event - The form submission event.
+         */
+        function handleMailtoForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const level = document.getElementById('student-level').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const emailError = document.getElementById('email-error');
+            
+            // Basic validation
+            if (!name || !level || !message) {
+                // The form HTML already uses 'required', but this handles the JavaScript part if needed
                 return;
             }
-
-            const rates = rateMap[subject.ratesRef];
             
-            // Dynamic classes for the detail page
-            const borderColor = `border-2 border-[${subject.colorClass}]`;
-            const bgColor = `${subject.hoverBg}`;
-            
-            let instructorNote = '';
-            if (subject.title === "Critical Thinking Questions") {
-                instructorNote = `
-                    <div class="my-6 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-lg shadow-md">
-                        <p class="font-bold text-lg">Specialized Instruction Alert!</p>
-                        <p class="mt-1">This high-level problem-solving track is taught exclusively by a current, highly-qualified <span class="font-bold">Academies of Loudoun (AOL) student</span>, ensuring instruction is focused on advanced competition math and critical reasoning techniques.</p>
-                    </div>
-                `;
-            }
+            // Construct the email body
+            const subject = encodeURIComponent(`Inquiry from ${name} about ${level}`);
+            const body = encodeURIComponent(`
+Hello Aditi,
 
-            contentDiv.innerHTML = `
-                <h2 class="text-5xl font-extrabold text-indigo-700 mb-3">${subject.title}</h2>
-                <p class="text-xl text-gray-500 mb-6">${subject.level}</p>
-                
-                <p class="text-[${subject.colorClass}] font-black text-lg mb-8 text-center border-b-2 border-dashed border-gray-200 pb-4">This subject is covered under our ${subject.ratesRef} pricing tier.</p>
-                
-                ${instructorNote}
+I am writing to inquire about tutoring for ${name}.
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Rate Card 1 -->
-                    <div class="p-6 rounded-xl ${borderColor} shadow-lg ${bgColor}">
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">Group Class Rate</h4>
-                        <p class="text-4xl font-black text-[${subject.colorClass}]">$${rates.group}<span class="text-xl font-medium"> / hr</span></p>
-                        <p class="text-sm text-gray-700 mt-2">Perfect for collaborative learning with peers.</p>
-                    </div>
-                    <!-- Rate Card 2 -->
-                    <div class="p-6 rounded-xl ${borderColor} shadow-lg ${bgColor}">
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">One-on-One Rate</h4>
-                        <p class="text-4xl font-black text-[${subject.colorClass}]">$${rates.oneOnOne}<span class="text-xl font-medium"> / hr</span></p>
-                        <p class="text-sm text-gray-700 mt-2">Fully personalized, focused attention.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-10 text-center">
-                    <button onclick="renderPage('form')" class="px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
-                        Sign Up Now for ${subject.title}
-                    </button>
-                </div>
-            `;
-        }
-        
-        // --- Mailto Form Submission Handler ---
-        function handleMailtoForm(event) {
-            event.preventDefault(); // Stop the default form submission
+Current Subject/Level: ${level}
 
-            const name = document.getElementById('name').value;
-            const level = document.getElementById('student-level').value;
-            const message = document.getElementById('message').value;
-            
-            const subject = encodeURIComponent(`Tutoring Inquiry for ${name} (${level})`);
-            const body = encodeURIComponent(
-                `Full Name: ${name}\n` +
-                `Student Level: ${level}\n\n` +
-                `Message Details:\n${message}\n\n` +
-                `---\n[Please leave the rest of this email for tracking purposes.]`
-            );
+Message: 
+${message}
+
+Please let me know about your availability for a free trial class.
+Thank you!
+            `);
 
             const mailtoLink = `mailto:thismathisfun@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Attempt to open the mail client
-            window.location.href = mailtoLink;
 
-            // Show an error message if the link doesn't open immediately (for better user feedback)
-            document.getElementById('email-error').classList.remove('hidden');
-            setTimeout(() => {
-                document.getElementById('email-error').classList.add('hidden');
-            }, 5000);
+            // Attempt to open the mailto link
+            window.location.href = mailtoLink;
             
-            // Optionally, clear the form after attempt
-            document.getElementById('mailto-form').reset();
+            // Show error message as a fallback, since mailto can fail in sandboxed environments or if no client is configured.
+            emailError.classList.remove('hidden');
         }
 
-        // --- Mobile Menu Toggle ---
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        /**
+         * Toggles the visibility of the mobile navigation menu.
+         */
+        function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
-        });
+        }
 
-        // Close mobile menu on nav item click
-        document.getElementById('mobile-menu').querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
+        // Attach event listener for the mobile menu button
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
 
-        // --- Initialize ---
-        window.onload = () => {
+        // Initialization on page load
+        window.onload = function() {
+            // Generate dynamic content
             generateSubjectCards();
-            // Start on the home page
-            renderPage('home'); 
+            generateAllSubjectsList();
+
+            // Check if there's a requested page hash in the URL (for deep linking)
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                renderPage(hash);
+            } else {
+                // Ensure home page is active by default
+                renderPage('home');
+            }
         };
+
     </script>
 </body>
 </html>
