@@ -6,13 +6,20 @@
     <title>This Math Is Fun - Tutoring Services</title>
     <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Links: Rubik (main), DM Serif Text (subtitles), Staatliches (headline) -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&family=Staatliches&display=swap" rel="stylesheet">
     <!-- Configure Tailwind for a vibrant color palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        // Main text font
+                        sans: ['Rubik', 'sans-serif'],
+                        // Display font remains DM Serif Text for major section titles
+                        display: ['DM Serif Text', 'serif'], 
+                        // NEW bold, geometric headline font
+                        headline: ['Staatliches', 'sans-serif'],
                     },
                     // Custom colors for subject cards (now with better vibrancy)
                     colors: {
@@ -51,6 +58,7 @@
     </style>
 </head>
 <body class="bg-blue-50 font-sans text-gray-800">
+
 
     <!-- Navigation Bar (White, Bolder Indigo/Amber accents) -->
     <header class="shadow-lg bg-white sticky top-0 z-10">
@@ -100,14 +108,24 @@
         </div>
     </header>
 
+
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         <!-- ==================================== -->
         <!-- HOME PAGE (Vibrant Theme) -->
         <!-- ==================================== -->
         <section id="home" class="page-container active-page">
+
+            <!-- START: ENHANCED TEXT BANNER (NOW USING STAATLHICHES AND BOLD BORDER) -->
+            <!-- Changed padding, border thickness, and hover scale for huge visual impact -->
+            <div class="text-center mb-12 max-w-fit mx-auto p-6 sm:p-10 rounded-full bg-dark-indigo shadow-2xl border-8 border-bright-amber transform hover:scale-105 transition duration-500 cursor-default">
+                <p class="text-3xl sm:text-5xl font-bold text-white tracking-widest font-headline uppercase drop-shadow-lg leading-none">
+                    Math Tutoring By Aditi
+                </p>
+            </div>
+            <!-- END: ENHANCED TEXT BANNER -->
             
-            <!-- 1. Primary Hero Section / CTA Banner (Image size reduced) -->
+            <!-- 1. Primary Hero Section / CTA Banner -->
             <div class="text-center p-6 sm:p-10 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-2xl shadow-2xl mb-12 border-b-8 border-indigo-600 overflow-hidden">
                 <!-- User's Main Image (image_88dae5.png) -->
                 <img 
@@ -128,12 +146,14 @@
                 </button>
             </div>
 
+
             <!-- 2. Core Pillars / Value Proposition (Vibrant Cards) - NOW FIRST -->
             <div class="mb-12">
                 <h2 class="text-3xl font-bold text-center text-dark-indigo mb-4">Our Collaborative Approach</h2>
                 <p class="text-center text-lg text-gray-500 mb-10 max-w-4xl mx-auto">
                     We specialize in personalized, patient instruction that ensures every student achieves genuine mathematical fluency.
                 </p>
+
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
@@ -154,11 +174,12 @@
                         <p class="text-gray-600">We prioritize foundational concepts over memorization, teaching the 'why' to build deep, long-lasting understanding.</p>
                     </div>
 
+
                     <!-- Pillar 2: Adaptive Teaching -->
                     <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-teal hover:bg-subject-teal/10 transition duration-300">
                         <!-- Icon: Users for Adaptive Teaching / Groups -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-teal mx-auto mb-4">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <path d="M16 21v-2a4 4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
@@ -166,6 +187,7 @@
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Adaptive Learning</h3>
                         <p class="text-gray-600">Instruction is tailored to the student's unique learning pace and style, ensuring every topic "clicks" effectively.</p>
                     </div>
+
 
                     <!-- Pillar 3: Progress Tracking -->
                     <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-red hover:bg-subject-red/10 transition duration-300">
@@ -180,6 +202,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- 3. Visualizing Success (Clean list, high contrast) - NOW SECOND -->
             <div class="mb-12 bg-white p-8 rounded-2xl shadow-xl border-t-4 border-bright-amber">
@@ -206,7 +229,9 @@
                     </div>
                 </div>
 
+
             </div>
+
 
             <!-- 4. Subject Cards Overview (3x3 Grid Enforced) -->
             <div class="py-10">
@@ -225,11 +250,13 @@
             
         </section>
 
+
         <!-- ==================================== -->
         <!-- ALL SUBJECTS PAGE (NEW) -->
         <!-- ==================================== -->
         <section id="subjects" class="page-container">
             <h2 class="text-4xl font-extrabold text-center text-dark-indigo mb-10">All Available Subjects & Tracks</h2>
+
 
             <div id="all-subjects-list" class="space-y-6 max-w-4xl mx-auto">
                 <!-- Content will be generated by JavaScript -->
@@ -241,6 +268,8 @@
                 </button>
             </div>
         </section>
+
+
 
 
         <!-- ==================================== -->
@@ -295,6 +324,7 @@
                     We primarily offer tutoring sessions at our Ashburn location or online via video conference.
                 </p>
 
+
                 <div class="mb-8">
                     <p class="text-center text-2xl font-bold text-bright-amber mb-4">
                         21920 Bellair Ct, Ashburn, VA 20147
@@ -316,6 +346,7 @@
                     </div>
                 </div>
 
+
                 <div class="text-center">
                     <button onclick="renderPage('form')" class="px-8 py-4 bg-indigo-600 text-white font-black text-xl rounded-2xl hover:bg-indigo-700 transition duration-300 shadow-xl shadow-indigo-600/70">
                         Schedule a Visit
@@ -323,6 +354,8 @@
                 </div>
             </div>
         </section>
+
+
 
 
         <!-- ==================================== -->
@@ -355,6 +388,7 @@
                         </li>
                     </ul>
                 </div>
+
 
                 <!-- One-on-One Card (Pricing updated for A2/Trig) -->
                 <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-bright-amber">
@@ -410,6 +444,7 @@
                     </div>
                 </div>
 
+
                 <button onclick="renderPage('form')" class="mt-10 px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-300 shadow-lg shadow-indigo-600/50">
                     Send a Message
                 </button>
@@ -425,6 +460,7 @@
                 <p class="text-center text-gray-600 mb-8 font-medium">
                     Fill out the form below. When you click 'Submit', your default email program will open to send the message to <span class="font-bold">thismathisfun@gmail.com</span>.
                 </p>
+
 
                 <form id="mailto-form" class="space-y-6" onsubmit="handleMailtoForm(event)">
                     <div>
@@ -458,13 +494,16 @@
                     </button>
                 </form>
 
+
                 <div id="email-error" class="hidden mt-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded" role="alert">
                     Please allow the page to open your email client. If it doesn't open, please email us directly at <a href="mailto:thismathisfun@gmail.com" class="font-semibold underline">thismathisfun@gmail.com</a>.
                 </div>
             </div>
         </section>
 
+
     </main>
+
 
     <!-- JavaScript for Page Routing and Content Generation -->
     <script>
@@ -483,14 +522,16 @@
             { title: "Critical Thinking Questions", level: "High-Level Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },
         ];
 
+
         // Map for rate lookup (used in subject detail)
         const rateMap = {
             "Elementary to Geometry": { group: 25, oneOnOne: 50 },
-            "Algebra 2/Trig": { group: 30, oneOnOne: 60 }, // UPDATED from 55 to 60
+            "Algebra 2/Trig": { group: 30, oneOnOne: 60 },
             "Pre-Calc and above": { group: 40, oneOnOne: 75 },
             // Specialized rate tier for Critical Thinking
             "AOLSpecialized": { group: 30, oneOnOne: 45 },
         };
+
 
         // --- Core Page Rendering Logic ---
         function renderPage(pageName, subjectTitle = null) {
@@ -505,6 +546,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
+
             // Special handling for subject details
             if (pageName === 'subject-details' && subjectTitle) {
                 renderSubjectDetails(subjectTitle);
@@ -513,14 +555,17 @@
             }
         }
 
+
         // --- Subject Card Generation (For Home Page) ---
         function generateSubjectCards() {
             const container = document.getElementById('subject-cards-container');
             let html = '';
 
+
             subjectData.forEach(subject => {
                 // The hoverText class needs to be defined like 'text-red-600'
                 const hoverTextClass = subject.hoverText.includes('text-') ? subject.hoverText : `text-${subject.hoverText}`;
+
 
                 html += `
                     <div onclick="renderPage('subject-details', '${subject.title}')" 
@@ -534,18 +579,22 @@
                 `;
             });
 
+
             container.innerHTML = html;
         }
+
 
         // --- All Subjects Page Rendering (NEW) ---
         function renderAllSubjectsPage() {
             const container = document.getElementById('all-subjects-list');
             let html = '';
 
+
             subjectData.forEach(subject => {
                 const rates = rateMap[subject.ratesRef];
                 const borderColor = `border-[${subject.colorClass}]`;
                 const bgColor = `bg-white`;
+
 
                 html += `
                     <div class="p-6 rounded-2xl shadow-lg border-l-8 ${borderColor} ${bgColor} hover:shadow-xl transition duration-300">
@@ -581,10 +630,12 @@
             const subject = subjectData.find(s => s.title === title);
             const contentDiv = document.getElementById('subject-detail-content');
 
+
             if (!subject) {
                 contentDiv.innerHTML = '<h2 class="text-4xl font-bold text-red-500">Subject Not Found</h2>';
                 return;
             }
+
 
             const rates = rateMap[subject.ratesRef];
             
@@ -602,6 +653,7 @@
                 `;
             }
 
+
             contentDiv.innerHTML = `
                 <h2 class="text-5xl font-extrabold text-indigo-700 mb-3">${subject.title}</h2>
                 <p class="text-xl text-gray-500 mb-6">${subject.level}</p>
@@ -609,6 +661,7 @@
                 <p class="text-[${subject.colorClass}] font-black text-lg mb-8 text-center border-b-2 border-dashed border-gray-200 pb-4">This subject is covered under our ${subject.ratesRef} pricing tier.</p>
                 
                 ${instructorNote}
+
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <!-- Rate Card 1 -->
@@ -637,6 +690,7 @@
         function handleMailtoForm(event) {
             event.preventDefault(); // Stop the default form submission
 
+
             const name = document.getElementById('name').value;
             const level = document.getElementById('student-level').value;
             const message = document.getElementById('message').value;
@@ -649,10 +703,12 @@
                 `---\n[Please leave the rest of this email for tracking purposes.]`
             );
 
+
             const mailtoLink = `mailto:thismathisfun@gmail.com?subject=${subject}&body=${body}`;
             
             // Attempt to open the mail client
             window.location.href = mailtoLink;
+
 
             // Show an error message if the link doesn't open immediately (for better user feedback)
             document.getElementById('email-error').classList.remove('hidden');
@@ -664,11 +720,13 @@
             document.getElementById('mailto-form').reset();
         }
 
+
         // --- Mobile Menu Toggle ---
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
+
 
         // Close mobile menu on nav item click
         document.getElementById('mobile-menu').querySelectorAll('a, button').forEach(el => {
@@ -676,6 +734,7 @@
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
+
 
         // --- Initialize ---
         window.onload = () => {
