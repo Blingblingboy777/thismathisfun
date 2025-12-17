@@ -299,67 +299,7 @@
 </style>
 
 
-                  
-  <!-- Innovation in Action Carousel -->
-  <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-bright-amber">
-    <h2 class="text-3xl font-bold text-center text-dark-indigo mb-8 border-b pb-4">
-      Innovation in Action
-    </h2>
-
-    <div class="carousel relative overflow-hidden rounded-lg max-w-4xl mx-auto">
-      <div class="carousel-track flex transition-transform duration-500">
-        <div class="slide min-w-full p-2 aspect-video">
-          <iframe src="https://www.youtube.com/embed/zDuyCvGku68" allowfullscreen class="w-full h-full"></iframe>
-        </div>
-        <div class="slide min-w-full p-2 aspect-video">
-          <iframe src="https://www.youtube.com/embed/GGAIkJs-dZQ" allowfullscreen class="w-full h-full"></iframe>
-        </div>
-        <div class="slide min-w-full p-2 aspect-video">
-          <iframe src="https://www.youtube.com/embed/4FQYzzsF43M" allowfullscreen class="w-full h-full"></iframe>
-        </div>
-      </div>
-
-      <button class="nav prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition" aria-label="Previous slide">&#10094;</button>
-      <button class="nav next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition" aria-label="Next slide">&#10095;</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  const track = document.querySelector('.carousel-track');
-  const slides = document.querySelectorAll('.slide');
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
-  const carousel = document.querySelector('.carousel');
-  let index = 0;
-
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  function slideNext() {
-    index = (index + 1) % slides.length;
-    updateCarousel();
-  }
-
-  nextBtn.addEventListener('click', slideNext);
-  prevBtn.addEventListener('click', () => {
-    index = (index - 1 + slides.length) % slides.length;
-    updateCarousel();
-  });
-
-  // Auto-slide with pause on hover
-  let interval = setInterval(slideNext, 4000);
-  carousel.addEventListener('mouseenter', () => clearInterval(interval));
-  carousel.addEventListener('mouseleave', () => interval = setInterval(slideNext, 4000));
-</script>
-
-                    
-
-
-
-
-                    
+        
 
 
 
