@@ -41,10 +41,24 @@
             }
         }
     </script>
- 
-   
+    <style>
+        /* Custom styles for page containers and smooth transitions */
+        .page-container {
+            display: none;
+            min-height: calc(100vh - 80px); 
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .active-page {
+            display: block;
+        }
+    </style>
 </head>
 <body class="bg-blue-50 font-sans text-gray-800">
+
 
     <!-- Navigation Bar (White, Bolder Indigo/Amber accents) -->
     <header class="shadow-lg bg-white sticky top-0 z-10">
@@ -58,7 +72,16 @@
                         <path d="M16 16L19 19" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <rect x="2" y="19" width="20" height="3" rx="1.5" fill="#4B5563"/>
                     </svg>
-        
+
+
+
+
+
+
+
+
+
+                    
                     <div>
                         <span class="block text-sm font-semibold text-gray-500 leading-none">THIS MATH IS</span>
                         <span class="block text-3xl text-bright-amber leading-none">FUN </span>
@@ -107,65 +130,50 @@
         <!-- ==================================== -->
         <section id="home" class="page-container active-page">
 
-          
-<section class="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
-  <div class="text-center max-w-3xl mx-auto p-6 sm:p-10 rounded-3xl 
-              bg-dark-indigo shadow-2xl border-8 border-bright-amber
-              transform hover:scale-[1.01] transition duration-500">
-
-    <h1 class="text-3xl sm:text-5xl font-extrabold text-white 
-               tracking-wider font-headline drop-shadow-lg leading-tight">
-      MATH Coaching <span class="text-bright-amber">and</span> Enrichment  
-      <span class="block text-2xl sm:text-3xl mt-2 font-semibold tracking-wide">
-        by Aditi
-      </span>
-    </h1>
-
-    <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto font-medium leading-relaxed">
-      Personalized instruction, hands-on math studios, and enrichment programs
-      that build strong foundations and confident problem solvers.
-    </p>
-
-  </div>
-
-
-
-
-
-
-<div class="text-center p-6 sm:p-10 bg-gradient-to-r from-indigo-50 to-indigo-100 
-            rounded-2xl shadow-2xl mb-12 border-t-8 border-indigo-600 
-            overflow-hidden scroll-fade">
-
-  <!-- Image -->
-  <div class="relative max-w-2xl mx-auto">
-    <img 
-      src="Gemini_Generated_Image_ysefzhysefzhysef.png" 
-      alt="Calculator and pencils on a sheet of paper with calculus and algebra formulas"
-      class="w-full rounded-xl shadow-2xl mb-8 border-4 border-bright-amber"
-      onerror="this.onerror=null; this.src='https://placehold.co/700x300/1e3a8a/ffffff?text=Math+Success+Awaits';"
-    >
-  </div>
-
-  <!-- CTA Button -->
-  <button
-    onclick="renderPage('form')"
-    class="inline-flex items-center justify-center px-8 py-4
-           rounded-full bg-bright-amber text-dark-indigo
-           font-black text-xl sm:text-2xl
-           shadow-2xl shadow-bright-amber/70
-           transform transition duration-300
-           hover:scale-105 hover:bg-amber-400
-           focus:outline-none focus:ring-4 focus:ring-bright-amber/60">
-    Get started with a 30-minute free class
-  </button>
-
-</div>
-
-
-
-
+            <!-- START: ENHANCED TEXT BANNER (Shorter, Wider Title) -->
+            <div class="text-center mb-12 max-w-2xl mx-auto p-6 sm:p-8 rounded-3xl bg-dark-indigo shadow-2xl border-8 border-bright-amber transform hover:scale-[1.01] transition duration-500 cursor-default">
+                <p class="text-3xl sm:text-5xl font-bold text-white tracking-widest font-headline drop-shadow-lg leading-none">
+                    MATH Coaching and Enrichment by ADITI
+                </p>
+            </div>
+            <!-- END: ENHANCED TEXT BANNER -->
             
+            <!-- 1. Primary Hero Section / CTA Banner -->
+            <div class="text-center p-6 sm:p-10 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-2xl shadow-2xl mb-12 border-b-8 border-indigo-600 overflow-hidden">
+                <!-- User's Main Image (image_88dae5.png) -->
+                <img 
+                    src="Gemini_Generated_Image_ysefzhysefzhysef.png" 
+                    alt="Calculator and pencils on a sheet of paper with various calculus and algebraic formulas written on it" 
+                    class="w-full max-w-2xl mx-auto rounded-xl shadow-2xl mb-8 border-4 border-bright-amber"
+                    onerror="this.onerror=null; this.src='https://placehold.co/700x300/1e3a8a/ffffff?text=Math+Success+Awaits'; console.error('Image image_88dae5.png failed to load.');"
+                >
+                
+                
+               <style>
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+</style>
+
+<p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium text-center fade-in-up">
+    Personalized math coaching, hands-on workshops, and a collaborative studio.
+</p>
+
+                <button onclick="renderPage('form')" class="inline-block p-4 rounded-full bg-bright-amber text-dark-indigo font-black text-xl sm:text-2xl shadow-2xl transform hover:scale-105 transition duration-300 shadow-bright-amber/70 hover:bg-amber-400">
+                   <p>Get started with a 30-minute free class</p> 
+                </button>
+            </div>
 
 
             <!-- 2. Core Pillars / Value Proposition (Vibrant Cards) - NOW FIRST -->
@@ -232,7 +240,7 @@
   </svg>
   <h3 class="text-xl font-bold text-gray-800 mb-2">Innovative Solutions</h3>
   <p class="text-gray-600 leading-relaxed mt-4 max-w-md mx-auto">
-    We leverage carefully designed, hands-on learning kits to transform abstract mathematical concepts into tangible, interactive discoveries. This approach strengthens critical thinking.
+    We leverage carefully designed, hands-on learning kits to transform abstract mathematical concepts into tangible, interactive discoveries. This approach strengthens foundational understanding and critical thinking.
   </p>
 </div>
 
@@ -254,7 +262,7 @@
         <path d="M12 22V9"/>
       </svg>
       <h3 class="text-xl font-bold text-gray-800 mb-2">Flexible Learning Platforms</h3>
-      <p class="text-gray-600">We deliver lessons in-person, online, and through hybrid formats, ensuring students can learn effectively wherever they are. Our YouTube channel provides supplementary videos to reinforce concepts.</p>
+      <p class="text-gray-600">We deliver lessons in-person, online, and through hybrid formats, ensuring students can learn effectively wherever they are. Our YouTube channel provides supplementary videos to reinforce concepts and practice at your own pace.</p>
     </div>
     
   </div>
@@ -886,23 +894,6 @@
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
-<script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  document.querySelectorAll('.scroll-fade').forEach(el => {
-    observer.observe(el);
-  });
-</script>
 
 
         // --- Initialize ---
