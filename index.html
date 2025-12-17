@@ -187,6 +187,12 @@
                     </div>
 
 
+
+
+
+
+                    
+
                     <!-- Pillar 3: Progress Tracking -->
                     <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-red hover:bg-subject-red/10 transition duration-300">
                         <!-- Icon: Target for Goals / Results -->
@@ -201,6 +207,121 @@
                 </div>
             
 
+
+
+
+<div class="max-w-7xl mx-auto px-6 py-12 space-y-12">
+
+  <!-- Collaborative Approach Section -->
+  <div class="grid md:grid-cols-3 gap-8">
+    <!-- Card 1: Collaborative Approach -->
+    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-red hover:bg-subject-red/10 transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-red mx-auto mb-4">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="6"/>
+        <circle cx="12" cy="12" r="2"/>
+      </svg>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Collaborative Approach</h3>
+      <p class="text-gray-600">We create an environment where ideas are shared, questions are encouraged, and success is built as a team.</p>
+    </div>
+
+    <!-- Card 2: Innovative Solutions -->
+    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-blue hover:bg-subject-blue/10 transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-blue mx-auto mb-4">
+        <path d="M12 2l4 7H8l4-7z"/>
+        <path d="M12 22V9"/>
+      </svg>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Innovative Solutions</h3>
+      <p class="text-gray-600">We leverage creativity and technology to provide effective and modern solutions for every challenge.</p>
+    </div>
+
+    <!-- Card 3: Measurable Results -->
+    <div class="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-subject-green hover:bg-subject-green/10 transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-subject-green mx-auto mb-4">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="6" x2="12" y2="12"/>
+        <line x1="12" y1="12" x2="16" y2="14"/>
+      </svg>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Measurable Results</h3>
+      <p class="text-gray-600">We focus on outcomes that matter, tracking progress and celebrating successes together.</p>
+    </div>
+  </div>
+
+  <!-- Innovation in Action Section -->
+  <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-bright-amber">
+    <h2 class="text-3xl font-bold text-center text-dark-indigo mb-8 border-b pb-4">
+      Innovation in Action
+    </h2>
+
+    <div class="carousel relative overflow-hidden rounded-lg max-w-4xl mx-auto">
+      <div class="carousel-track flex transition-transform duration-500">
+        <!-- Slide 1 -->
+        <div class="slide min-w-full p-2">
+          <div class="video-wrapper aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/zDuyCvGku68" allowfullscreen class="w-full h-full"></iframe>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide min-w-full p-2">
+          <div class="video-wrapper aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/GGAIkJs-dZQ" allowfullscreen class="w-full h-full"></iframe>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide min-w-full p-2">
+          <div class="video-wrapper aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/4FQYzzsF43M" allowfullscreen class="w-full h-full"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <button class="nav prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition">&#10094;</button>
+      <button class="nav next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition">&#10095;</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.slide');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  // Optional: Auto-slide every 4 seconds
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }, 4000);
+</script>
+
+<style>
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+
+
+            
+            
 
 <div class="mb-12 bg-white p-8 rounded-2xl shadow-xl border-t-4 border-bright-amber">
   <h2 class="text-3xl font-bold text-center text-dark-indigo mb-8 border-b pb-4">
