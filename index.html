@@ -139,10 +139,27 @@
                 >
                 
                 
-                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium">
-                   
-                  Personalized math coaching, hands-on workshops, and a collaborative studio
-                </p>
+               <style>
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+</style>
+
+<p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium text-center fade-in-up">
+    Personalized math coaching, hands-on workshops, and a collaborative studio.
+</p>
+
                 <button onclick="renderPage('form')" class="inline-block p-4 rounded-full bg-bright-amber text-dark-indigo font-black text-xl sm:text-2xl shadow-2xl transform hover:scale-105 transition duration-300 shadow-bright-amber/70 hover:bg-amber-400">
                    <p>Get started with a 30-minute free class</p> 
                 </button>
