@@ -684,24 +684,23 @@ A passionate and dedicated mathematics educator, Aditi has spent years turning m
 
     <!-- JavaScript for Page Routing and Content Generation -->
     <script>
-        // Updated subject data with color classes
-        const subjectData = [
-            // Original list follows
-            { title: "Calculus-AB", level: "Advanced High School / College Prep", ratesRef: "Pre-Calc and above", colorClass: "subject-red", hoverBg: "bg-red-50", hoverText: "text-red-600" },
-            { title: "Pre-Calculus (All Tracks)", level: "High School", ratesRef: "Pre-Calc and above", colorClass: "subject-orange", hoverBg: "bg-orange-50", hoverText: "text-orange-600" },
-            { title: "Algebra 2 / Trig", level: "High School", ratesRef: "Algebra 2/Trig", colorClass: "subject-yellow", hoverBg: "subject-orange", hoverText: "text-yellow-600" },
-            { title: "Geometry", level: "High School / Middle School", ratesRef: "Geometry", colorClass: "subject-green", hoverBg: "bg-green-50", hoverText: "text-green-600" },
-            { title: "Algebra 1", level: "Middle / High School", ratesRef: "Elementary", colorClass: "subject-teal", hoverBg: "bg-green-50", hoverText: "text-teal-600" },
-            { title: "Pre-Algebra", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-cyan", hoverBg: "bg-cyan-50" hoverText: "text-cyan-600" },
-            { title: "Foundations of Algebra", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-blue", hoverBg: "bg-cyan-50", hoverText: "text-blue-600" },
-            { title: "Math 6", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-violet", hoverBg: "bg-violet-50", hoverText: "text-violet-600" },
-            { title: "Elementary School Math", level: "Elementary", ratesRef: "Elementary", colorClass: "subject-pink", hoverBg: "bg-violet-50", hoverText: "text-pink-600" },
-            { title: "Critical Thinking", level: "High-Level Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },
-        ];
+        
 
-
-        // Map for rate lookup (used in subject detail)
-        const rateMap = {
+// Updated subject data with color classes
+        const subjectData = [ 
+            // Original list follows 
+            { title: "Calculus-AB", level: "Advanced High School / College Prep", ratesRef: "Pre-Calc and above", colorClass: "subject-red", hoverBg: "bg-red-50", hoverText: "text-red-600" }, 
+            { title: "Pre-Calculus (All Tracks)", level: "High School", ratesRef: "Pre-Calc and above", colorClass: "subject-orange", hoverBg: "bg-orange-50", hoverText: "text-orange-600" }, 
+            { title: "Algebra 2 / Trig", level: "High School", ratesRef: "Algebra 2/Trig", colorClass: "subject-yellow", hoverBg: "bg-yellow-50", hoverText: "text-yellow-600" }, 
+            { title: "Geometry", level: "High School / Middle School", ratesRef: "Geometry", colorClass: "subject-green", hoverBg: "bg-green-50", hoverText: "text-green-600" }, 
+                {title: "Algebra 1", level: "Middle / High School", ratesRef: "Elementary", colorClass: "subject-teal", hoverBg: "bg-teal-50", hoverText: "text-teal-600" },
+            { title: "Pre-Algebra", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-cyan", hoverBg: "bg-cyan-50", hoverText: "text-cyan-600" }, 
+            { title: "Foundations of Algebra", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-blue", hoverBg: "bg-blue-50", hoverText: "text-blue-600" }, 
+            { title: "Math 6", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-violet", hoverBg: "bg-violet-50", hoverText: "text-violet-600" }, 
+            { title: "Elementary School Math", level: "Elementary", ratesRef: "Elementary", colorClass: "subject-pink", hoverBg: "bg-pink-50", hoverText: "text-pink-600" }, 
+            { title: "Critical Thinking", level: "High-Level Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },  
+         ];
+            const rateMap = {
             "Elementary": { group: 25, oneOnOne: 50 },
             "Geometry": { group: 30, oneOnOne: 60 },
             "Algebra 2/Trig": { group: 30, oneOnOne: 65 },
