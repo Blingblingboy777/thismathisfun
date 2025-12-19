@@ -177,7 +177,20 @@
 
 
             <!-- 2. Core Pillars / Value Proposition (Vibrant Cards) - NOW FIRST -->
-            
+     <!-- 4. Subject Cards Overview (3x3 Grid Enforced) -->
+            <div class="py-10">
+                <h2 class="text-4xl font-extrabold mb-8 text-center text-dark-indigo border-b pb-4">Our Math Tracks</h2>
+                
+                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                    <!-- Cards will be injected here by JavaScript -->
+                </div>
+                
+                <div class="text-center mt-12">
+                     <button onclick="renderPage('subjects')" class="px-6 py-3 bg-gray-300 text-gray-800 font-bold rounded-xl hover:bg-gray-400 transition duration-300 shadow-md">
+                        View All Subjects in Detail
+                    </button>
+                </div>
+            </div>        
 
 <h2 class="text-3xl font-bold text-center text-dark-indigo mb-8 border-b pb-4">
      Our Commitment to your success
@@ -369,20 +382,7 @@
 
         
 
-            <!-- 4. Subject Cards Overview (3x3 Grid Enforced) -->
-            <div class="py-10">
-                <h2 class="text-4xl font-extrabold mb-8 text-center text-dark-indigo border-b pb-4">Our Math Tracks</h2>
-                
-                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-                    <!-- Cards will be injected here by JavaScript -->
-                </div>
-                
-                <div class="text-center mt-12">
-                     <button onclick="renderPage('subjects')" class="px-6 py-3 bg-gray-300 text-gray-800 font-bold rounded-xl hover:bg-gray-400 transition duration-300 shadow-md">
-                        View All Subjects in Detail
-                    </button>
-                </div>
-            </div>
+           
             
         </section>
 
