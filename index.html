@@ -130,12 +130,10 @@
     </p>
 </div>
 
-            
+        
             <!-- END: ENHANCED TEXT BANNER -->
-  
-            
-            <!-- 1. Primary Hero Section / CTA Banner -->
-            
+              
+            <!-- 1. Primary Hero Section / CTA Banner -->          
 
     <div class="py-2 px-3 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg shadow-lg mb-8 border-b border-indigo-600 max-w-7xl mx-auto">
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -147,6 +145,12 @@
         alt="Math coaching illustration"
         class="w-full max-w-sm rounded-lg shadow-lg border border-bright-amber"
       >
+         <button 
+        onclick="renderPage('form')" 
+        class="inline-block px-2 py-2 rounded-full bg-bright-amber text-dark-indigo font-black text-lg shadow-md transform hover:scale-105 transition duration-300 shadow-bright-amber/50 hover:bg-amber-400"
+      >
+        Get started with a 30-minute free class
+      </button>
     </div>
       
         <div id="subject-cards-column-2" class="grid grid-cols-1 gap-4">
@@ -157,25 +161,12 @@
          <!-- Cards will be injected here by JavaScript -->
         </div>
                
-    <button 
-        onclick="renderPage('form')" 
-        class="inline-block px-2 py-2 rounded-full bg-bright-amber text-dark-indigo font-black text-lg shadow-md transform hover:scale-105 transition duration-300 shadow-bright-amber/50 hover:bg-amber-400"
-      >
-        Get started with a 30-minute free class
-      </button>
    
-                
-                 </div>
-        </div>
-
-    <button 
-        onclick="renderPage('form')" 
-        class="inline-block px-2 py-2 rounded-full bg-bright-amber text-dark-indigo font-black text-lg shadow-md transform hover:scale-105 transition duration-300 shadow-bright-amber/50 hover:bg-amber-400"
-      >
-        Get started with a 30-minute free class
-      </button>
     
+   </div>
+        </div>
         <style>
+            
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -684,7 +675,7 @@ A passionate and dedicated mathematics educator, Aditi has spent years turning m
             { title: "Foundations of Algebra", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-blue", hoverBg: "bg-blue-50", hoverText: "text-blue-600" }, 
             { title: "Math 6", level: "Middle School", ratesRef: "Elementary", colorClass: "subject-violet", hoverBg: "bg-violet-50", hoverText: "text-violet-600" }, 
             { title: "Elementary School Math", level: "Elementary", ratesRef: "Elementary", colorClass: "subject-pink", hoverBg: "bg-pink-50", hoverText: "text-pink-600" }, 
-            { title: "Critical Thinking", level: "High-Level Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },  
+            { title: "Critical Thinking", level: "Problem Solving & Competition Prep", ratesRef: "AOLSpecialized", colorClass: "subject-amber", hoverBg: "bg-amber-50", hoverText: "text-amber-600" },  
          ];
             const rateMap = {
             "Elementary": { group: 25, oneOnOne: 50 },
