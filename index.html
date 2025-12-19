@@ -139,7 +139,7 @@
             <!-- 1. Primary Hero Section / CTA Banner -->          
 
     <div class="py-2 px-3 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg shadow-lg mb-8 border-b border-indigo-600 max-w-7xl mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
 
     <!-- Image -->
     <div class="flex flex-col items-center lg:items-start">
@@ -170,6 +170,10 @@
          <!-- Cards will be injected here by JavaScript -->
         </div>
         </div>
+
+    <div id="subject-cards-column-4" class="grid grid-cols-1 gap-2 max-w-xs justify-items-center">
+  <!-- Cards injected via JS -->
+     </div>
 
 
 
@@ -727,9 +731,10 @@ A passionate and dedicated mathematics educator, Aditi has spent years turning m
 function generateHeroCards() {
     const col2 = document.getElementById('subject-cards-column-2');
     const col3 = document.getElementById('subject-cards-column-3');
-
+ const col4 = document.getElementById('subject-cards-column-4');
     col2.innerHTML = '';
     col3.innerHTML = '';
+    col4.innerHTML = '';
 
     subjectData.forEach((subject, index) => {
         const cardHTML = `
@@ -739,10 +744,14 @@ function generateHeroCards() {
                 <p class="text-sm ${subject.hoverText} font-semibold mb-4">${subject.level}</p>
             </div>
         `;
-        if (index % 2 === 0) {
+        if (index % 3 === 0) {
             col2.innerHTML += cardHTML;
-        } else {
+        } 
+        else if (index % 3 === 1) {
             col3.innerHTML += cardHTML;
+        }
+        else {
+            col4.innerHTML += cardHTML;
         }
     });
 }
