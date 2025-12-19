@@ -161,7 +161,27 @@
         Get started with a 30-minute free class
       </button>
     </div>
-        
+        <div id="subject-cards-column-2" class="grid grid-cols-1 gap-4">
+    <!-- Cards will be injected here by JavaScript -->
+        </div>
+
+<div id="subject-cards-column-3" class="grid grid-cols-1 gap-4">
+         <!-- Cards will be injected here by JavaScript -->
+        </div>
+               
+    
+    <!<h2 class="text-4xl font-extrabold mb-8 text-center text-dark-indigo border-b pb-4">Our Math Tracks</h2>
+                
+      <!          <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                    <!-- Cards will be injected here by JavaScript -->
+        <!        </div>
+
+                
+                 </div>
+        </div>
+
+    
+    
         <style>
 @keyframes fadeInUp {
   0% {
@@ -183,18 +203,7 @@
 
               
 
-            <!-- 2. Core Pillars / Value Proposition (Vibrant Cards) - NOW FIRST -->
-     <!-- 4. Subject Cards Overview (3x3 Grid Enforced) -->
-            <div class="py-">
-                <h2 class="text-4xl font-extrabold mb-8 text-center text-dark-indigo border-b pb-4">Our Math Tracks</h2>
-                
-                <div id="subject-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-                    <!-- Cards will be injected here by JavaScript -->
-                </div>
-
-                
-                 </div>
-        </div>
+           
                 
           <!-- Innovation in Action Section -->
                       
@@ -717,11 +726,45 @@ A passionate and dedicated mathematics educator, Aditi has spent years turning m
         }
 
 
+function generateHeroCards() {
+    const col2 = document.getElementById('subject-cards-column-2');
+    const col3 = document.getElementById('subject-cards-column-3');
+
+    col2.innerHTML = '';
+    col3.innerHTML = '';
+
+    subjectData.forEach((subject, index) => {
+        const cardHTML = `
+            <div onclick="renderPage('subject-details', '${subject.title}')" 
+                 class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer border-l-8 border-[${subject.colorClass}] ${subject.hoverBg}">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">${subject.title}</h3>
+                <p class="text-sm ${subject.hoverText} font-semibold mb-4">${subject.level}</p>
+            </div>
+        `;
+        if (index % 2 === 0) {
+            col2.innerHTML += cardHTML;
+        } else {
+            col3.innerHTML += cardHTML;
+        }
+    });
+}
+
+
+
+
+        
+
         // --- Subject Card Generation (For Home Page) ---
         function generateSubjectCards() {
             const container = document.getElementById('subject-cards-container');
             let html = '';
 
+
+
+
+
+
+            
 
             subjectData.forEach(subject => {
                 // The hoverText class needs to be defined like 'text-red-600'
@@ -899,7 +942,7 @@ A passionate and dedicated mathematics educator, Aditi has spent years turning m
 
         // --- Initialize ---
         window.onload = () => {
-            generateSubjectCards();
+            generateHeroCards()
             // Start on the home page
             renderPage('home'); 
         };
