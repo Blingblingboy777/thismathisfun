@@ -736,7 +736,20 @@ function generateHeroCards() {
     subjectData.forEach((subject, index) => {
         const cardHTML = `
             <div onclick="renderPage('subject-details', '${subject.title}')" 
-                 class="bg-white p-2 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer border-l-8 border-[${subject.colorClass}] ${subject.hoverBg}">
+            <div class="
+  w-full
+  h-[120px]
+  bg-white
+  p-4
+  rounded-xl
+  shadow-lg
+  border-l-4
+  flex flex-col justify-between
+  hover:shadow-xl
+  transition duration-300
+">
+
+           //      class="bg-white p-2 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer border-l-8 border-[${subject.colorClass}] ${subject.hoverBg}">
                 <h3 class="text-xl font-bold text-gray-800 mb-2">${subject.title}</h3>
                 <p class="text-sm ${subject.hoverText} font-semibold mb-4">${subject.level}</p>
             </div>
